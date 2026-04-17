@@ -5,6 +5,35 @@
     <meta charset="utf-8" />
     <title>家計簿アプリ</title>
 </head>
+<script>
+    document.getElementById('Add').addEventListener('submit', async (e) => {
+        e.preventDefault(); // 画面がリロードされるのを防ぐ
+
+        // 入力された値を取得
+        const item = {
+            name: document.getElementById('name').value,
+            money: parseInt(document.getElementById('money').value),
+            type: document.getElementById('type').value,
+            category: document.getElementById('type2').value,
+            date: document.getElementById('date').value,
+            memo: document.getElementById('memo').value
+        };
+
+        // C#のAPI（受付係）に送信
+        const response = await fetch('/api/kakeibo/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(item)
+        });
+
+        if (response.ok) {
+            alert("データベースに登録されました！");
+            document.getElementById('Add').reset(); // 入力欄を空にする
+        } else {
+            alert("登録に失敗しました。");
+        }
+    });
+</script>
 <body>
     <h1>家計簿アプリ</h1>
 
