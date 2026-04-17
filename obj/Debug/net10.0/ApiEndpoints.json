@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "KakeiboController",
+    "Method": "AddItem",
+    "RelativePath": "api/Kakeibo/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "item",
+        "Type": "kakeiboApp.KakeiboItem",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "kakeiboApp.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
