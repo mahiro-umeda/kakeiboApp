@@ -249,4 +249,5 @@ C:\Users\GE00517\kakeiboApp\obj\Debug\net10.0\swae.build.ex.cache
 C:\Users\GE00517\kakeiboApp\obj\Debug\net10.0\kakeiboApp.csproj.Up2Date
 C:\Users\GE00517\kakeiboApp\obj\Debug\net10.0\kakeiboApp.genruntimeconfig.cache
 C:\Users\GE00517\kakeiboApp\obj\Debug\net10.0\ref\kakeiboApp.dll
-C:\Users\GE00517\kakeiboapp\obj\Debug\net10.0\compressed\2jczyvc6nn-{0}-z6wl98j3av-z6wl98j3av.gz
+C:\Users\GE00517\kakeiboApp\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\GE00517\kakeiboApp\obj\Debug\net10.0\compressed\sgvrvd9es9-{0}-z6wl98j3av-z6wl98j3av.gz

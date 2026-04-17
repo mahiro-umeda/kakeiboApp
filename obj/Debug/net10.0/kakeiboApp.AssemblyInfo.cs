@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("kakeiboApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e84a881f20298fc487989f9813be1f6950fcdfe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2ed4d5d06d8e94f062fdc8a1873191214d72a2b")]
 [assembly: System.Reflection.AssemblyProductAttribute("kakeiboApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("kakeiboApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
