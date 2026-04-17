@@ -568,23 +568,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\GE00517\\.nuget\\packages\\": {},
+    "C:\\Users\\GE00514\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.csproj",
+      "projectUniqueName": "C:\\Users\\GE00514\\kakeiboApp\\kakeiboApp.csproj",
       "projectName": "kakeiboApp",
-      "projectPath": "C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.csproj",
-      "packagesPath": "C:\\Users\\GE00517\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\GE00517\\kakeiboApp\\obj\\",
+      "projectPath": "C:\\Users\\GE00514\\kakeiboApp\\kakeiboApp.csproj",
+      "packagesPath": "C:\\Users\\GE00514\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\GE00514\\kakeiboApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\GE00517\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\GE00514\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -598,7 +598,6 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {}
         }
@@ -617,7 +616,6 @@
     },
     "frameworks": {
       "net10.0": {
-        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": {
@@ -652,7 +650,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
