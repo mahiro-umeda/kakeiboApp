@@ -2995,23 +2995,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\GE00517\\.nuget\\packages\\": {},
+    "C:\\Users\\GE00518\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.csproj",
+      "projectUniqueName": "C:\\Users\\GE00518\\kakeiboApp\\kakeiboApp.csproj",
       "projectName": "kakeiboApp",
-      "projectPath": "C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.csproj",
-      "packagesPath": "C:\\Users\\GE00517\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\GE00517\\kakeiboApp\\obj\\",
+      "projectPath": "C:\\Users\\GE00518\\kakeiboApp\\kakeiboApp.csproj",
+      "packagesPath": "C:\\Users\\GE00518\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\GE00518\\kakeiboApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\GE00517\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\GE00518\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
