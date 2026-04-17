@@ -3,44 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\GE00517\\kakeiboApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GE00517\\kakeiboApp\\MyDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MyDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|c:\\users\\ge00517\\kakeiboapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GE00517\\kakeiboApp\\Controllers\\WeatherForecastController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\WeatherForecastController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|c:\\users\\ge00517\\kakeiboapp\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GE00517\\kakeiboApp\\Controllers\\KakeiboController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\KakeiboController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|c:\\users\\ge00517\\kakeiboapp\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kakeiboApp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|c:\\users\\ge00517\\kakeiboapp\\kakeiboitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|solutionrelative:kakeiboitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kakeiboApp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|c:\\users\\ge00517\\kakeiboapp\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GE00517\\kakeiboApp\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|c:\\users\\ge00517\\kakeiboapp\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|solutionrelative:mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GE00517\\kakeiboApp\\WeatherForecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WeatherForecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|c:\\users\\ge00517\\kakeiboapp\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|solutionrelative:weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GE00517\\kakeiboApp\\KakeiboItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KakeiboItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|c:\\users\\ge00517\\kakeiboapp\\kakeiboapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|solutionrelative:kakeiboapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:kakeiboApp.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|c:\\users\\ge00517\\kakeiboapp\\kakeiboapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|solutionrelative:kakeiboapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\GE00517\\kakeiboApp\\wwwroot\\test.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:wwwroot\\test.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|c:\\users\\ge00517\\kakeiboapp\\controllers\\kakeibocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|solutionrelative:controllers\\kakeibocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|c:\\users\\ge00517\\kakeiboapp\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|c:\\users\\ge00517\\kakeiboapp\\wwwroot\\test.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57B898E3-DD6F-A80B-77E5-3A66AE45A1D1}|kakeiboApp.csproj|solutionrelative:wwwroot\\test.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,71 +58,67 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\GE00517\\kakeiboApp\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-17T04:58:20.297Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "WeatherForecast.cs",
-              "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\WeatherForecast.cs",
-              "RelativeDocumentMoniker": "WeatherForecast.cs",
-              "ToolTip": "C:\\Users\\GE00517\\kakeiboApp\\WeatherForecast.cs",
-              "RelativeToolTip": "WeatherForecast.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T04:28:12.415Z",
+              "DocumentIndex": 1,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\GE00517\\kakeiboApp\\wwwroot\\index.html",
+              "RelativeToolTip": "wwwroot\\index.html",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-17T04:48:47.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\GE00517\\kakeiboApp\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-17T04:33:57.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MyDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\MyDbContext.cs",
-              "RelativeDocumentMoniker": "MyDbContext.cs",
-              "ToolTip": "C:\\Users\\GE00517\\kakeiboApp\\MyDbContext.cs",
-              "RelativeToolTip": "MyDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T04:16:55.154Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\GE00517\\kakeiboApp\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAABMAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-16T02:44:35.136Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "kakeiboApp.http",
-              "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.http",
-              "RelativeDocumentMoniker": "kakeiboApp.http",
-              "ToolTip": "C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.http",
-              "RelativeToolTip": "kakeiboApp.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2026-04-17T00:23:21.191Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "kakeiboApp.csproj",
               "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.csproj",
               "RelativeDocumentMoniker": "kakeiboApp.csproj",
@@ -122,12 +126,11 @@
               "RelativeToolTip": "kakeiboApp.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-16T05:40:13.401Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T05:40:13.401Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "KakeiboController.cs",
               "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\Controllers\\KakeiboController.cs",
               "RelativeDocumentMoniker": "Controllers\\KakeiboController.cs",
@@ -135,12 +138,11 @@
               "RelativeToolTip": "Controllers\\KakeiboController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-17T04:26:19.201Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T04:26:19.201Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "WeatherForecastController.cs",
               "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\Controllers\\WeatherForecastController.cs",
               "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
@@ -148,12 +150,23 @@
               "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAAwBQAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T05:21:42.454Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T05:21:42.454Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
+              "Title": "MyDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\MyDbContext.cs",
+              "RelativeDocumentMoniker": "MyDbContext.cs",
+              "ToolTip": "C:\\Users\\GE00517\\kakeiboApp\\MyDbContext.cs",
+              "RelativeToolTip": "MyDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T04:16:55.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "KakeiboItem.cs",
               "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\KakeiboItem.cs",
               "RelativeDocumentMoniker": "KakeiboItem.cs",
@@ -166,20 +179,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "kakeiboApp.html",
-              "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.html",
-              "RelativeDocumentMoniker": "kakeiboApp.html",
-              "ToolTip": "C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.html",
-              "RelativeToolTip": "kakeiboApp.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-04-17T01:12:09.987Z",
-              "EditorCaption": ""
+              "DocumentIndex": 7,
+              "Title": "kakeiboApp.http",
+              "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.http",
+              "RelativeDocumentMoniker": "kakeiboApp.http",
+              "ToolTip": "C:\\Users\\GE00517\\kakeiboApp\\kakeiboApp.http",
+              "RelativeToolTip": "kakeiboApp.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2026-04-17T00:23:21.191Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 6,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "WeatherForecast.cs",
+              "ToolTip": "C:\\Users\\GE00517\\kakeiboApp\\WeatherForecast.cs",
+              "RelativeToolTip": "WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T04:28:12.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "test.html",
               "DocumentMoniker": "C:\\Users\\GE00517\\kakeiboApp\\wwwroot\\test.html",
               "RelativeDocumentMoniker": "wwwroot\\test.html",
@@ -187,8 +211,7 @@
               "RelativeToolTip": "wwwroot\\test.html",
               "ViewState": "AgIAACEAAAAAAAAAAAAAwCkAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-04-17T00:24:35.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-17T00:24:35.367Z"
             }
           ]
         }
