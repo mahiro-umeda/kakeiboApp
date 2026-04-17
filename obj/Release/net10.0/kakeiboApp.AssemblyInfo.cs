@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("kakeiboApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< Updated upstream
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d87c5d5f5194229e2f98c96b4460e4c963f9097e")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a81661c338e5c2f015c70dd364ddb5f5fa83e4d")]
+>>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("kakeiboApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("kakeiboApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
