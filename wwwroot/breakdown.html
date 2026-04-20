@@ -19,7 +19,7 @@
             </select>
         </div>
         <div class="col">
-            <button class="btn btn-primary w-100" onclick="loadData()">検索</button>
+            <button class="btn btn-primary w-100" onclick="loadBreakdownData()">検索</button>
         </div>
     </div>
 
@@ -27,13 +27,14 @@
     <table class="table mt-4">
         <thead>
     l        <tr>
-                <th>日付</th>
-                <th>内容</th>
-                <th>区分</th>
-                <th>カテゴリ</th>
-                <th>金額</th>
-                <th>メモ</th>
-            </tr>
+    <th>日付</th>
+    <th>内容</th>
+    <th>区分</th>
+    <th>カテゴリ</th>
+    <th>金額</th>
+    <th>メモ</th>
+    <td><button class="btn btn-danger btn-sm" onclick="del(${x.id})">削除</button></td>
+</tr>
         </thead>
         <tbody id="list"></tbody>
     </table>

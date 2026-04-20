@@ -51,6 +51,15 @@ async function loadBreakdownData() {
             <td>${item.memo}</td>
         </tr>`;
     });
+
+    //削除
+    async function del(id) {
+        if (!confirm("削除する？")) return;
+        await fetch("/api/Kakeibo/" + id, { method: "DELETE" });
+        loadData();
+    }
+
+    loadData();
 }
 
 // breakdown.htmlだけで実行
