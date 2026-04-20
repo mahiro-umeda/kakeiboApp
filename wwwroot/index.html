@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="utf-8" />
@@ -8,7 +7,7 @@
 <body>
     <h1>家計簿アプリ</h1>
 
-    <!-- 登録用フォーム(必要か分からないけど一応全体くくってます) -->
+    <!-- 登録用フォーム -->
     <form id="Add">
 
         <!-- 品名 -->
@@ -36,7 +35,11 @@
         <textarea id="memo" placeholder="メモ"></textarea><br>
         <button type="submit">登録する</button>
 
+        <script src="app_api.js"></script>
     </form>
+
+    <h2>一覧</h2>
+    <div id="list"></div>
 
 </body>
 </html>
