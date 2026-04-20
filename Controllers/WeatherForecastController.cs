@@ -23,6 +23,7 @@ namespace kakeiboApp.Controllers
             Name TEXT,
             Money INTEGER,
             Type TEXT,
+            Category TEXT,
             Date TEXT,
             Memo TEXT
             )";
@@ -34,8 +35,8 @@ namespace kakeiboApp.Controllers
 
             //INSERT＝データを保存
             string sql = @"
-            INSERT INTO Kakeibo (Name, Money, Type, Date, Memo)
-            VALUES (@name, @money, @type, @date, @memo)
+            INSERT INTO Kakeibo (Name, Money, Type, Category, Date, Memo)
+            VALUES (@name, @money, @type, @category, @date, @memo)
    　　　　 ";　//家計簿テーブル＞列指定＞VALUESで値（実際のデータ)を指定
 
             //上で指定した値を紐づけ(@name→"昼ごはん"みたいな)
@@ -43,6 +44,7 @@ namespace kakeiboApp.Controllers
             cmd.Parameters.AddWithValue("@name", data.Name);
             cmd.Parameters.AddWithValue("@money", data.Money);
             cmd.Parameters.AddWithValue("@type", data.Type);
+            cmd.Parameters.AddWithValue("@category", data.Category);
             cmd.Parameters.AddWithValue("@date", data.Date);
             cmd.Parameters.AddWithValue("@memo", data.Memo);
 
@@ -69,6 +71,7 @@ namespace kakeiboApp.Controllers
             Name TEXT,
             Money INTEGER,
             Type TEXT,
+            Category TEXT,
             Date TEXT,
             Memo TEXT
             )";
@@ -77,7 +80,7 @@ namespace kakeiboApp.Controllers
             createCmd.ExecuteNonQuery();
 
             //SELECT＝データを取得
-            string sql = "SELECT Name, Money, Type, Date, Memo FROM Kakeibo"; //欲しい列(serect)とテーブルを指定(from)
+            string sql = "SELECT Name, Money, Type, Category, Date, Memo FROM Kakeibo"; //欲しい列(serect)とテーブルを指定(from)
 
             using var cmd = new SQLiteCommand(sql, connection);
             using var reader = cmd.ExecuteReader(); //複数行の結果が返ってくる
@@ -91,6 +94,7 @@ namespace kakeiboApp.Controllers
                     Name = reader["Name"].ToString(),
                     Money = Convert.ToInt32(reader["Money"]),
                     Type = reader["Type"].ToString(),
+                    Category = reader["Category"].ToString(),
                     Date = reader["Date"].ToString(),
                     Memo = reader["Memo"].ToString()
                 });
