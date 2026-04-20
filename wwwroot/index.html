@@ -1,52 +1,38 @@
-﻿﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="utf-8" />
-    <title>家計簿アプリ</title>
+    <title>家計簿</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
     <div class="container">
+        <h1 class="mt-4 text-center">家計簿</h1>
 
-        <h1 class="text-center mt-4">家計簿アプリ</h1>
-
-        <!-- 登録フォーム -->
         <div class="row mt-4">
-            <div class="col"><input id="name" class="form-control" placeholder="内容"></div>
-            <div class="col"><input id="money" type="number" class="form-control" placeholder="金額"></div>
-            <div class="col">
-                <select id="type" class="form-control">
-                    <option value="収入">収入</option>
-                    <option value="支出">支出</option>
-                </select>
-            </div>
-            <div class="col"><input id="date" type="date" class="form-control"></div>
-            <div class="col"><input id="memo" class="form-control" placeholder="メモ"></div>
-            <div class="col">
-                <button class="btn btn-success w-100" onclick="add()">登録</button>
-            </div>
+            <input id="name" class="form-control col" placeholder="内容">
+            <input id="money" type="number" class="form-control col" placeholder="金額">
+            <select id="type" class="form-control col">
+                <option value="収入">収入</option>
+                <option value="支出">支出</option>
+            </select>
+            <input id="date" type="date" class="form-control col">
+            <input id="memo" class="form-control col" placeholder="メモ">
+            <button class="btn btn-success col" onclick="add()">登録</button>
         </div>
 
-        <!-- 検索 -->
         <div class="row mt-4">
-            <div class="col"><input type="date" id="startDate" class="form-control"></div>
-            <div class="col"><input type="date" id="endDate" class="form-control"></div>
-            <div class="col">
-                <select id="searchType" class="form-control">
-                    <option value="">すべて</option>
-                    <option value="収入">収入</option>
-                    <option value="支出">支出</option>
-                </select>
-            </div>
-            <div class="col">
-                <button class="btn btn-primary w-100" onclick="loadData()">検索</button>
-            </div>
+            <input type="date" id="startDate" class="form-control col">
+            <input type="date" id="endDate" class="form-control col">
+            <select id="searchType" class="form-control col">
+                <option value="">すべて</option>
+                <option value="収入">収入</option>
+                <option value="支出">支出</option>
+            </select>
+            <button class="btn btn-primary col" onclick="loadData()">検索</button>
         </div>
-        <a href="breakdown.html">明細一覧をみる</a>
 
-        <!-- 一覧 -->
         <table class="table mt-4">
             <thead>
                 <tr>
@@ -55,15 +41,17 @@
                     <th>区分</th>
                     <th>金額</th>
                     <th>メモ</th>
+                    <th>削除</th>
                 </tr>
             </thead>
             <tbody id="list"></tbody>
         </table>
-
     </div>
 
+    <a href="breakdown.html">明細をみる</a>
+    
+
     <script>
-        // 登録
         async function add() {
             const data = {
                 name: document.getElementById("name").value,
@@ -73,48 +61,48 @@
                 memo: document.getElementById("memo").value
             };
 
-            await fetch("/api/Kakeibo", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
-
+            await fetch("/api/Kakeibo", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
             loadData();
         }
 
-        // 一覧＋検索
         async function loadData() {
+            const params = new URLSearchParams();
             const type = document.getElementById("searchType").value;
-            const start = document.getElementById("startDate").value;
-            const end = document.getElementById("endDate").value;
+            const s = document.getElementById("startDate").value;
+            const e = document.getElementById("endDate").value;
 
-            let url = "/api/Kakeibo?";
+            if (type) params.append("type", type);
+            if (s) params.append("startDate", s);
+            if (e) params.append("endDate", e);
 
-            if (type) url += "type=" + type + "&";
-            if (start) url += "startDate=" + start + "&";
-            if (end) url += "endDate=" + end;
-
-            const res = await fetch(url);
+            const res = await fetch("/api/Kakeibo?" + params.toString());
             const data = await res.json();
 
             const list = document.getElementById("list");
             list.innerHTML = "";
 
-            data.forEach(item => {
+            data.forEach(x => {
                 list.innerHTML += `
-                <tr>
-                    <td>${item.date}</td>
-                    <td>${item.name}</td>
-                    <td>${item.type}</td>
-                    <td>${item.money}</td>
-                    <td>${item.memo}</td>
-                </tr>`;
+<tr>
+<td>${x.date}</td>
+<td>${x.name}</td>
+<td>${x.type}</td>
+<td>${x.money}</td>
+<td>${x.memo}</td>
+<td><button class="btn btn-danger" onclick="del(${x.id})">削除</button></td>
+</tr>`;
             });
         }
 
-        // 初期表示
+        async function del(id) {
+            if (!confirm("削除する？")) return;
+            await fetch("/api/Kakeibo/" + id, { method: "DELETE" });
+            loadData();
+        }
+
         loadData();
     </script>
 
+    
 </body>
 </html>
