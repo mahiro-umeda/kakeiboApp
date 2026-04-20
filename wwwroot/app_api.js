@@ -8,6 +8,7 @@ document.getElementById("Add").addEventListener("submit", async (e) => {
         type: document.getElementById("type").value,
         type2: document.getElementById("type2").value,
         date: document.getElementById("date").value,
+        category: document.getElementById("category").value,
         memo: document.getElementById("memo").value
     };
 

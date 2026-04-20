@@ -42,6 +42,7 @@ public class Kakeibo
     public string Name { get; set; }
     public int Money { get; set; }
     public string Type { get; set; }
-    public string Date { get; set; }
+    public  DateTime Date { get; set; }
+    public string Category { get; set; }
     public string Memo { get; set; }
 }
