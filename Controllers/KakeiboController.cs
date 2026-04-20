@@ -19,7 +19,12 @@ public class KakeiboController : ControllerBase
         }
         catch (Exception ex)
         {
-            return BadRequest(new { message = ex.Message });
+            return BadRequest(new
+            {
+                message = ex.Message,
+                inner = ex.InnerException?.Message
+            });
+            // return BadRequest(new { message = ex.Message });
         }
     }
 

@@ -22,7 +22,7 @@ namespace kakeiboApp.Migrations
                     Type = table.Column<string>(type: "TEXT", nullable: false),
                     Category = table.Column<string>(type: "TEXT", nullable: false),
                     Date = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Memo = table.Column<string>(type: "TEXT", nullable: false)
+                    Memo = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

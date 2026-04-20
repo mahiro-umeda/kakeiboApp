@@ -51,20 +51,31 @@
     type: document.getElementById('type').value,
     category: document.getElementById('category').value,
     date: document.getElementById('date').value,
-    memo: document.getElementById('memo').value
+    memo: document.getElementById('memo').value || null
             };
+            try {
 
-    const response = await fetch('/api/kakeibo/add', {
-        method: 'POST', // サーバーに登録
-    headers: {'Content-Type': 'application/json' },
-    body: JSON.stringify(item)
-            });
 
-    if (response.ok) {
-        alert("登録しました！");
-    document.getElementById('Add').reset();
-    loadList(); // ★登録成功後にリストを更新！
-            } else {
-        alert("登録に失敗しました。");
+                const response = await fetch('/api/kakeibo/add', {
+                    method: 'POST', // サーバーに登録
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(item)
+                });
+
+                if (response.ok) {
+                    alert("登録しました！");
+                    document.getElementById('Add').reset();
+                    loadList(); // ★登録成功後にリストを更新！
+                } else {
+
+                    const err = await response.text();
+                    console.log(err);
+                    alert("登録に失敗しました。: \n" + err);
+                }
+
+            }
+            catch (error){
+                console.error(error);
+                alert("通信エラー発生");
             }
         });

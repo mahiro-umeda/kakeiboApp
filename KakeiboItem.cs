@@ -8,5 +8,5 @@ public class KakeiboItem
     public string Type { get; set; }
     public string Category { get; set; }
     public DateTime Date { get; set; }
-    public string Memo { get; set; }
+    public string ? Memo { get; set; }
 }

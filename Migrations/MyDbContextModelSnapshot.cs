@@ -31,7 +31,6 @@ namespace kakeiboApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Memo")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Money")
