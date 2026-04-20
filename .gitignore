@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+.vs/
+bin/
+obj/
+
 # User-specific files
 *.rsuser
 *.suo
@@ -361,3 +365,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# データベースファイル自体はGit管理から外す（人によって中身が違うため）
+*.db
+*.db-shm
+*.db-wal

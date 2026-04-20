@@ -1,0 +1,140 @@
+﻿
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <title>家計簿アプリ</title>
+</head>
+<body>
+    <h1>家計簿アプリ</h1>
+
+    <!-- 登録用フォーム(必要か分からないけど一応全体くくってます) -->
+    <form id="Add">
+
+        <!-- 品名 -->
+        <input id="name" placeholder="品名"><br>
+
+        <!-- 金額 -->
+        <input id="money" placeholder="金額"><br>
+
+        <!-- 収入or支出 -->
+        <select id="type">
+            <option value="in">収入</option>
+            <option value="out">支出</option>
+        </select><br>
+
+        <!-- カテゴリ -->
+        <select id="type2">
+            <option value="eat">食費</option>
+            <option value="living">光熱費</option>
+        </select> <br>
+
+        <!-- 日付 -->
+        <input type="date" id="date" required> <br>
+
+        <!-- 備考 -->
+        <textarea id="memo" placeholder="メモ"></textarea><br>
+        <button type="submit">登録する</button>
+
+    </form>
+    <!-- 検索エリア -->
+    <div>
+        <select id="searchCategory">
+            <option value="">全て</option>
+            <option value="eat">食費</option>
+            <option value="living">光熱費</option>
+        </select>
+
+        <input type="date" id="startDate">
+        <input type="date" id="endDate">
+
+        <button onclick="loadList()">検索</button>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>日付</th>
+                <th>品名</th>
+                <th>金額</th>
+                <th>収入/支出</th>
+                <th>カテゴリ</th>
+                <th>メモ</th>
+            </tr>
+        </thead>
+        <tbody id="list-body"></tbody>
+    </table>
+
+    <!--一覧取得-->
+    <script>
+            async function loadList() {
+
+        const category = document.getElementById('searchCategory').value;
+            const start = document.getElementById('startDate').value;
+            const end = document.getElementById('endDate').value;
+
+                let params = [];
+
+                if (category) params.push(`category=${category}`);
+                if (start) params.push(`start=${start}`);
+                if (end) params.push(`end=${end}`);
+
+                let url = '/api/kakeibo/list';
+
+                if (params.length > 0) {
+                    url += '?' + params.join('&');
+                } 
+
+            const response = await fetch(url);
+            const data = await response.json();
+
+            const tbody = document.getElementById('list-body');
+            tbody.innerHTML = '';
+
+        data.forEach(item => {
+            const row = `<tr>
+                <td>${item.date.substring(0, 10)}</td>
+                <td>${item.name}</td>
+                <td>${item.money}</td>
+                <td>${item.type}</td>
+                <td>${item.category}</td>
+                <td>${item.memo}</td>
+            </tr>`;
+            tbody.innerHTML += row;
+        });
+}
+
+
+        // ページを開いたときに実行
+
+        window.onload = loadList;
+
+        // 既存の登録処理
+        document.getElementById('Add').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const item = {
+                name: document.getElementById('name').value,
+                money: parseInt(document.getElementById('money').value),
+                type: document.getElementById('type').value,
+                category: document.getElementById('type2').value,
+                date: document.getElementById('date').value,
+                memo: document.getElementById('memo').value
+            };
+
+            const response = await fetch('/api/kakeibo/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(item)
+            });
+
+            if (response.ok) {
+                alert("登録しました！");
+                document.getElementById('Add').reset();
+                loadList(); // ★登録成功後にリストを更新！
+            } else {
+                alert("登録に失敗しました。");
+            }
+        });
+    </script>
+</body>
+</html>
