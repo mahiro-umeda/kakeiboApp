@@ -11,7 +11,7 @@ namespace kakeiboApp.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Kakeibo data)
         {
-            string connectionString = "Data Source=Test.db;Version=3;";
+            string connectionString = "Data Source=kakeibo.db;Version=3;";
 
             using var connection = new SQLiteConnection(connectionString);
             connection.Open();
@@ -57,7 +57,7 @@ namespace kakeiboApp.Controllers
         public List<Kakeibo> Get()
         {
             var list = new List<Kakeibo>();
-            string connectionString = "Data Source=Test.db;Version=3;";
+            string connectionString = "Data Source=kakeibo.db;Version=3;";
 
             using var connection = new SQLiteConnection(connectionString);
             connection.Open();
