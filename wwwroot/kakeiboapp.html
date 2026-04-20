@@ -12,10 +12,10 @@
     <form id="Add">
 
         <!-- 品名 -->
-        <input id="name" placeholder="品名"><br>
+        <input id="name" placeholder="品名" required><br>
 
         <!-- 金額 -->
-        <input id="money" placeholder="金額"><br>
+        <input type="number" id="money" placeholder="金額" required><br>
 
         <!-- 収入or支出 -->
         <select id="type">
@@ -24,10 +24,10 @@
         </select><br>
 
         <!-- カテゴリ -->
-        <select id="type2">
+        <select id="category">
             <option value="eat">食費</option>
             <option value="living">光熱費</option>
-        </select> <br>
+        </select><br>
 
         <!-- 日付 -->
         <input type="date" id="date" required> <br>
@@ -63,78 +63,6 @@
         </thead>
         <tbody id="list-body"></tbody>
     </table>
-
-    <!--一覧取得-->
-    <script>
-            async function loadList() {
-
-        const category = document.getElementById('searchCategory').value;
-            const start = document.getElementById('startDate').value;
-            const end = document.getElementById('endDate').value;
-
-                let params = [];
-
-                if (category) params.push(`category=${category}`);
-                if (start) params.push(`start=${start}`);
-                if (end) params.push(`end=${end}`);
-
-                let url = '/api/kakeibo/list';
-
-                if (params.length > 0) {
-                    url += '?' + params.join('&');
-                } 
-
-            const response = await fetch(url);
-            const data = await response.json();
-
-            const tbody = document.getElementById('list-body');
-            tbody.innerHTML = '';
-
-        data.forEach(item => {
-            const row = `<tr>
-                <td>${item.date.substring(0, 10)}</td>
-                <td>${item.name}</td>
-                <td>${item.money}</td>
-                <td>${item.type}</td>
-                <td>${item.category}</td>
-                <td>${item.memo}</td>
-            </tr>`;
-            tbody.innerHTML += row;
-        });
-}
-
-
-        // ページを開いたときに実行
-
-        window.onload = loadList;
-
-        // 既存の登録処理
-        document.getElementById('Add').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const item = {
-                name: document.getElementById('name').value,
-                money: parseInt(document.getElementById('money').value),
-                type: document.getElementById('type').value,
-                category: document.getElementById('type2').value,
-                date: document.getElementById('date').value,
-                memo: document.getElementById('memo').value
-            };
-
-            const response = await fetch('/api/kakeibo/add', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(item)
-            });
-
-            if (response.ok) {
-                alert("登録しました！");
-                document.getElementById('Add').reset();
-                loadList(); // ★登録成功後にリストを更新！
-            } else {
-                alert("登録に失敗しました。");
-            }
-        });
-    </script>
+    <script src="kakeiboApp.js"></script>
 </body>
 </html>

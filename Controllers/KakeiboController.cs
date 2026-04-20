@@ -26,6 +26,7 @@ public class KakeiboController : ControllerBase
     [HttpGet("list")]
     public IActionResult GetItems(string category, DateTime? start, DateTime? end)
     {
+        _context.Database.EnsureCreated();
         // ① まず全部取得
         var items = _context.KakeiboItems.ToList();
 
@@ -51,5 +52,14 @@ public class KakeiboController : ControllerBase
         items = items.OrderByDescending(x => x.Date).ToList();
 
         return Ok(items);
+    }
+
+    [HttpGet("test")]
+    public IActionResult Test()
+    {
+        var baseDirectory = Directory.GetCurrentDirectory();
+        var dbPath = Path.Combine(baseDirectory, "kakeibo.db");
+
+        return Ok(dbPath);
     }
 }

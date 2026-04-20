@@ -13,6 +13,8 @@ public class MyDbContext : DbContext
         var baseDirectory = Directory.GetCurrentDirectory();
         var dbPath = Path.Combine(baseDirectory, "kakeibo.db");
 
+        Console.WriteLine(dbPath);
+
         // 誰の環境でも、プロジェクト直下の kakeibo.db を見に行くようになる
         options.UseSqlite($"Data Source={dbPath}");
     }
