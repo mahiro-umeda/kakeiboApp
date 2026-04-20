@@ -10,35 +10,72 @@
     <div class="container">
         <h1 class="mt-4 text-center">家計簿</h1>
 
+        <!-- 登録 -->
         <div class="row mt-4">
             <input id="name" class="form-control col" placeholder="内容">
             <input id="money" type="number" class="form-control col" placeholder="金額">
+
             <select id="type" class="form-control col">
                 <option value="収入">収入</option>
                 <option value="支出">支出</option>
             </select>
+
+            <select id="category" class="form-control col">
+                <option value="家賃">家賃</option>
+                <option value="食費">食費</option>
+                <option value="交通費">交通費</option>
+                <option value="光熱費">光熱費</option>
+                <option value="日用品">日用品</option>
+                <option value="医療費">医療費</option>
+                <option value="ローン">ローン</option>
+                <option value="交際費">交際費</option>
+                <option value="雑費">雑費</option>
+                <option value="給与">給与</option>
+                <option value="臨時収入">臨時収入</option>
+            </select>
+
             <input id="date" type="date" class="form-control col">
             <input id="memo" class="form-control col" placeholder="メモ">
             <button class="btn btn-success col" onclick="add()">登録</button>
         </div>
 
+        <!-- 検索 -->
         <div class="row mt-4">
             <input type="date" id="startDate" class="form-control col">
             <input type="date" id="endDate" class="form-control col">
+
             <select id="searchType" class="form-control col">
                 <option value="">すべて</option>
                 <option value="収入">収入</option>
                 <option value="支出">支出</option>
             </select>
+
+            <select id="searchCategory" class="form-control col">
+                <option value="">すべて</option>
+                <option value="家賃">家賃</option>
+                <option value="食費">食費</option>
+                <option value="交通費">交通費</option>
+                <option value="光熱費">光熱費</option>
+                <option value="日用品">日用品</option>
+                <option value="医療費">医療費</option>
+                <option value="ローン">ローン</option>
+                <option value="交際費">交際費</option>
+                <option value="雑費">雑費</option>
+                <option value="給与">給与</option>
+                <option value="臨時収入">臨時収入</option>
+            </select>
+
             <button class="btn btn-primary col" onclick="loadData()">検索</button>
         </div>
 
+        <!-- 一覧 -->
         <table class="table mt-4">
             <thead>
                 <tr>
                     <th>日付</th>
                     <th>内容</th>
                     <th>区分</th>
+                    <th>カテゴリ</th>
                     <th>金額</th>
                     <th>メモ</th>
                     <th>削除</th>
@@ -46,10 +83,13 @@
             </thead>
             <tbody id="list"></tbody>
         </table>
-    </div>
 
-    <a href="breakdown.html">明細をみる</a>
-    
+        <!-- 🔥 画面遷移ボタン（ここが修正ポイント） -->
+        <div class="mt-3 text-center">
+            <a href="breakdown.html" class="btn btn-secondary">明細ページへ</a>
+        </div>
+
+    </div>
 
     <script>
         async function add() {
@@ -57,21 +97,30 @@
                 name: document.getElementById("name").value,
                 money: parseInt(document.getElementById("money").value),
                 type: document.getElementById("type").value,
+                category: document.getElementById("category").value,
                 date: document.getElementById("date").value,
                 memo: document.getElementById("memo").value
             };
 
-            await fetch("/api/Kakeibo", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+            await fetch("/api/Kakeibo", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
             loadData();
         }
 
         async function loadData() {
             const params = new URLSearchParams();
+
             const type = document.getElementById("searchType").value;
+            const cat = document.getElementById("searchCategory").value;
             const s = document.getElementById("startDate").value;
             const e = document.getElementById("endDate").value;
 
             if (type) params.append("type", type);
+            if (cat) params.append("category", cat);
             if (s) params.append("startDate", s);
             if (e) params.append("endDate", e);
 
@@ -87,6 +136,7 @@
 <td>${x.date}</td>
 <td>${x.name}</td>
 <td>${x.type}</td>
+<td>${x.category}</td>
 <td>${x.money}</td>
 <td>${x.memo}</td>
 <td><button class="btn btn-danger" onclick="del(${x.id})">削除</button></td>
@@ -96,13 +146,16 @@
 
         async function del(id) {
             if (!confirm("削除する？")) return;
-            await fetch("/api/Kakeibo/" + id, { method: "DELETE" });
+
+            await fetch("/api/Kakeibo/" + id, {
+                method: "DELETE"
+            });
+
             loadData();
         }
 
         loadData();
     </script>
 
-    
 </body>
 </html>

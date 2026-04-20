@@ -17,6 +17,7 @@ namespace kakeiboApp.Controllers
             Name TEXT,
             Money INTEGER,
             Type TEXT,
+            Category TEXT,
             Date TEXT,
             Memo TEXT
             )";
@@ -35,14 +36,15 @@ namespace kakeiboApp.Controllers
             CreateTable(connection);
 
             string sql = @"
-            INSERT INTO Kakeibo (Name, Money, Type, Date, Memo)
-            VALUES (@name, @money, @type, @date, @memo)
+            INSERT INTO Kakeibo (Name, Money, Type, Category, Date, Memo)
+            VALUES (@name, @money, @type, @category, @date, @memo)
             ";
 
             using var cmd = new SQLiteCommand(sql, connection);
             cmd.Parameters.AddWithValue("@name", data.Name);
             cmd.Parameters.AddWithValue("@money", data.Money);
             cmd.Parameters.AddWithValue("@type", data.Type);
+            cmd.Parameters.AddWithValue("@category", data.Category);
             cmd.Parameters.AddWithValue("@date", data.Date);
             cmd.Parameters.AddWithValue("@memo", data.Memo);
 
@@ -51,9 +53,9 @@ namespace kakeiboApp.Controllers
             return Ok();
         }
 
-        // 検索付き取得
+        // 検索（カテゴリ対応）
         [HttpGet]
-        public List<Kakeibo> Get(string? type, string? startDate, string? endDate)
+        public List<Kakeibo> Get(string? type, string? category, string? startDate, string? endDate)
         {
             var list = new List<Kakeibo>();
 
@@ -63,13 +65,16 @@ namespace kakeiboApp.Controllers
             CreateTable(connection);
 
             string sql = @"
-            SELECT Id, Name, Money, Type, Date, Memo 
+            SELECT Id, Name, Money, Type, Category, Date, Memo 
             FROM Kakeibo 
             WHERE 1=1
             ";
 
             if (!string.IsNullOrEmpty(type))
                 sql += " AND Type = @type";
+
+            if (!string.IsNullOrEmpty(category))
+                sql += " AND Category = @category";
 
             if (!string.IsNullOrEmpty(startDate))
                 sql += " AND date(Date) >= date(@startDate)";
@@ -81,6 +86,9 @@ namespace kakeiboApp.Controllers
 
             if (!string.IsNullOrEmpty(type))
                 cmd.Parameters.AddWithValue("@type", type);
+
+            if (!string.IsNullOrEmpty(category))
+                cmd.Parameters.AddWithValue("@category", category);
 
             if (!string.IsNullOrEmpty(startDate))
                 cmd.Parameters.AddWithValue("@startDate", startDate);
@@ -98,6 +106,7 @@ namespace kakeiboApp.Controllers
                     Name = reader["Name"].ToString(),
                     Money = Convert.ToInt32(reader["Money"]),
                     Type = reader["Type"].ToString(),
+                    Category = reader["Category"].ToString(),
                     Date = reader["Date"].ToString(),
                     Memo = reader["Memo"].ToString()
                 });
