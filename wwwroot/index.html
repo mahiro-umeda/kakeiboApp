@@ -38,8 +38,35 @@
         <script src="app_api.js"></script>
     </form>
 
-    <h2>一覧</h2>
-    <div id="list"></div>
+    <a href="breakdown.html">明細をみる</a>
+
+    <!-- 検索エリア -->
+    <div>
+        <select id="searchCategory">
+            <option value="">全て</option>
+            <option value="eat">食費</option>
+            <option value="living">光熱費</option>
+        </select>
+
+        <input type="date" id="startDate">
+        <input type="date" id="endDate">
+
+        <button onclick="loadList()">検索</button>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>日付</th>
+                <th>品名</th>
+                <th>金額</th>
+                <th>収入/支出</th>
+                <th>カテゴリ</th>
+                <th>メモ</th>
+            </tr>
+        </thead>
+        <tbody id="list-body"></tbody>
+    </table>
+
 
 </body>
 </html>
