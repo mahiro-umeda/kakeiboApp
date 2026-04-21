@@ -1,0 +1,156 @@
+﻿body {
+}
+
+    /* ナビバー */
+    .navbar {
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+/* メニュー */
+.menu-box {
+    position: relative;
+}
+
+/* ボタン */
+.menu-btn {
+    cursor: pointer;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+    .menu-btn:hover {
+        background: rgba(255,255,255,0.35);
+    }
+
+/* メニュー本体 */
+.menu-list {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    min-width: 180px;
+    display: none;
+}
+
+    .menu-list a {
+        display: block;
+        padding: 12px 15px;
+        text-decoration: none;
+        color: #333;
+    }
+
+        .menu-list a:hover {
+            background: #0d6efd;
+            color: white;
+        }
+/* 固定の「white」ではなく、Bootstrapの変数を使うようにする */
+.form-card {
+    background-color: var(--bs-body-bg); /* これでモードに合わせて自動で変わります */
+    color: var(--bs-body-color);
+    /* ...他のスタイル... */
+}
+
+/* または、ダークモードの時だけ色を上書きする */
+[data-bs-theme="dark"] .backcolor {
+    background-color: #121212 !important; /* 真っ暗な背景 */
+}
+
+[data-bs-theme="dark"] .backcolor {
+    background-color: #000000 !important;
+}
+
+:root {
+    /* デフォルトの色（ライトモード時） */
+    --main-theme-color: #0d6efd;
+}
+
+/* ナビゲーションの色を変数にする */
+.bg-primary {
+    background-color: var(--main-theme-color) !important;
+}
+
+/* ダークモード時の背景（!importantは変数で管理すれば不要になります） */
+[data-bs-theme="dark"] .backcolor {
+    background-color: #000000;
+}
+:root {
+    /* JavaScriptから書き換えるためのメインカラー */
+    --main-theme-color: #0d6efd;
+}
+
+/* 画面全体の背景設定 */
+body.backcolor {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    min-height: 100vh;
+}
+
+/* ダークモード時の背景を真っ黒にしたい場合 */
+[data-bs-theme="dark"] body.backcolor {
+    background-color: #000000 !important;
+}
+
+/* ナビバー：カスタムカラーを適用 */
+.navbar.bg-primary {
+    background-color: var(--main-theme-color) !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* フォームカード */
+.form-card {
+    background-color: var(--bs-tertiary-bg); /* モードに合わせて自動調整される背景色 */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* メニュー本体 */
+.menu-list {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background-color: var(--bs-body-bg); /* モードに合わせて白/黒に */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    min-width: 180px;
+    display: none;
+    z-index: 1000;
+}
+
+    .menu-list a {
+        display: block;
+        padding: 12px 15px;
+        text-decoration: none;
+        color: var(--bs-body-color);
+    }
+
+        /* ホバー時はカスタムカラーにする */
+        .menu-list a:hover {
+            background-color: var(--main-theme-color);
+            color: white;
+        }
+
+/* ボタン（登録ボタンなど）もカスタムカラーに連動させるなら */
+.btn-success {
+    background-color: var(--main-theme-color) !important;
+    border-color: var(--main-theme-color) !important;
+}
+/* メニュー内のリンクの色 */
+.menu-list a:hover {
+    background: var(--main-theme-color);
+    color: white;
+}
+
+/* ダークモード時のメニューの色調整 */
+[data-bs-theme="dark"] .menu-list {
+    background: #2b3035;
+    border: 1px solid #444;
+}
+
+    [data-bs-theme="dark"] .menu-list a {
+        color: white;
+    }

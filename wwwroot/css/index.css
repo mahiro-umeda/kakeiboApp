@@ -1,0 +1,27 @@
+﻿body {
+    background: #f5f7fa;
+}
+
+/* タイトル */
+.title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+/* フォーム中央寄せ */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* カード */
+.form-card {
+    width: 900px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
