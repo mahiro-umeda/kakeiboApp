@@ -1,4 +1,12 @@
 // JavaScript source code
+
+//メニュー
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+//api
 document.getElementById("Add").addEventListener("submit", async (e) => {
     e.preventDefault();
 

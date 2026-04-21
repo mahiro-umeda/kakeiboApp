@@ -1,0 +1,49 @@
+﻿body {
+}
+
+    /* ナビバー */
+    .navbar {
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+/* メニュー */
+.menu-box {
+    position: relative;
+}
+
+/* ボタン */
+.menu-btn {
+    cursor: pointer;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+    .menu-btn:hover {
+        background: rgba(255,255,255,0.35);
+    }
+
+/* メニュー本体 */
+.menu-list {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    min-width: 180px;
+    display: none;
+}
+
+    .menu-list a {
+        display: block;
+        padding: 12px 15px;
+        text-decoration: none;
+        color: #333;
+    }
+
+        .menu-list a:hover {
+            background: #0d6efd;
+            color: white;
+        }
