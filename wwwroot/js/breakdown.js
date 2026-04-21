@@ -1,20 +1,6 @@
-﻿// JavaScript source code
+﻿async function loadData() {
 
-async function loadData() {
-
-    const params = new URLSearchParams();
-
-    const type = document.getElementById("searchType").value;
-    const cat = document.getElementById("searchCategory").value;
-    const s = document.getElementById("startDate").value;
-    const e = document.getElementById("endDate").value;
-
-    if (type) params.append("type", type);
-    if (cat) params.append("category", cat);
-    if (s) params.append("startDate", s);
-    if (e) params.append("endDate", e);
-
-    const res = await fetch("/api/Kakeibo?" + params.toString());
+    const res = await fetch("/api/kakeibo");
     const data = await res.json();
 
     const list = document.getElementById("list");
@@ -23,39 +9,63 @@ async function loadData() {
     let totalIncome = 0;
     let totalExpense = 0;
 
-    data.forEach(x => {
+    const startDate = document.getElementById("startDate").value;
+    const endDate = document.getElementById("endDate").value;
+    const searchType = document.getElementById("searchType").value;
+    const searchCategory = document.getElementById("searchCategory").value;
 
-        const money = Number(x.money);
+    data.forEach(item => {
 
-        if (x.type === "収入") {
-            totalIncome += money;
+        if (startDate && item.date < startDate) return;
+        if (endDate && item.date > endDate) return;
+        if (searchType && item.type !== searchType) return;
+        if (searchCategory && item.category !== searchCategory) return;
+
+        if (item.type === "収入") {
+            totalIncome += item.money;
         } else {
-            totalExpense += money;
+            totalExpense += item.money;
         }
 
-        list.innerHTML += `
-<tr>
-<td>${x.date}</td>
-<td>${x.name}</td>
-<td>${x.type}</td>
-<td>${x.category}</td>
-<td>${x.money}</td>
-<td>${x.memo}</td>
-<td><button class="btn btn-danger" onclick="del(${x.id})">削除</button></td>
-</tr>`;
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+            <td>${item.date}</td>
+            <td>${item.name}</td>
+            <td>${item.type}</td>
+            <td>${item.category}</td>
+            <td>${item.money}</td>
+            <td>${item.memo || ""}</td>
+            <td>
+                <button class="btn btn-danger btn-sm" onclick="deleteData(${item.id})">
+                    削除
+                </button>
+            </td>
+        `;
+
+        list.appendChild(tr);
     });
 
-    document.getElementById("totalIncome").innerText = totalIncome;
-    document.getElementById("totalExpense").innerText = totalExpense;
-    document.getElementById("balance").innerText = totalIncome - totalExpense;
+    document.getElementById("totalIncome").textContent = totalIncome;
+    document.getElementById("totalExpense").textContent = totalExpense;
+
+    const balance = totalIncome - totalExpense;
+    const balanceEl = document.getElementById("balance");
+    balanceEl.textContent = balance;
+
+    // ⭐ 色変化
+    if (balance >= 0) {
+        balanceEl.style.color = "#36a2eb";
+    } else {
+        balanceEl.style.color = "#ff6384";
+    }
 }
 
-async function del(id) {
-    if (!confirm("削除する？")) return;
-
-    await fetch("/api/Kakeibo/" + id, { method: "DELETE" });
+async function deleteData(id) {
+    await fetch(`/api/kakeibo/${id}`, {
+        method: "DELETE"
+    });
     loadData();
 }
 
-// 初期表示
 loadData();
