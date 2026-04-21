@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SQLite;
+using System.IO;
 
 namespace kakeiboApp.Controllers
 {
@@ -7,27 +8,36 @@ namespace kakeiboApp.Controllers
     [Route("api/[controller]")]
     public class KakeiboController : ControllerBase
     {
-        string connectionString = "Data Source=kakeibo.db;Version=3;";
+        private readonly string connectionString = "Data Source=kakeibo.db;Version=3;";
+        private readonly string sqlFilePath = "input.sql";
 
-        // テーブル作成
+        // SQLファイルから特定のタグの命令を抽出するヘルパー
+        private string GetSql(string tag)
+        {
+            // File ではなく System.IO.File を使う
+            if (!System.IO.File.Exists(sqlFilePath)) return string.Empty;
+
+            var allText = System.IO.File.ReadAllText(sqlFilePath);
+            var sections = allText.Split(new[] { "-- [" }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var section in sections)
+            {
+                if (section.StartsWith(tag + "]"))
+                {
+                    // IndexOf は「I」が大文字
+                    return section.Substring(section.IndexOf("]") + 1).Trim();
+                }
+            }
+            return string.Empty;
+        }
+
         private void CreateTable(SQLiteConnection connection)
         {
-            string sql = @"
-            CREATE TABLE IF NOT EXISTS Kakeibo(
-                Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                Name TEXT,
-                Money INTEGER,
-                Type TEXT,
-                Category TEXT,
-                Date TEXT,
-                Memo TEXT
-            )";
-
+            string sql = GetSql("CREATE_TABLE");
             using var cmd = new SQLiteCommand(sql, connection);
             cmd.ExecuteNonQuery();
         }
 
-        // 登録
         [HttpPost]
         public IActionResult Post([FromBody] Kakeibo data)
         {
@@ -35,14 +45,9 @@ namespace kakeiboApp.Controllers
             {
                 using var connection = new SQLiteConnection(connectionString);
                 connection.Open();
-
                 CreateTable(connection);
 
-                string sql = @"
-                INSERT INTO Kakeibo (Name, Money, Type, Category, Date, Memo)
-                VALUES (@name, @money, @type, @category, @date, @memo)
-                ";
-
+                string sql = GetSql("INSERT");
                 using var cmd = new SQLiteCommand(sql, connection);
 
                 cmd.Parameters.AddWithValue("@name", data.Name ?? "");
@@ -53,85 +58,54 @@ namespace kakeiboApp.Controllers
                 cmd.Parameters.AddWithValue("@memo", data.Memo ?? "");
 
                 cmd.ExecuteNonQuery();
-
                 return Ok();
             }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
+            catch (Exception e) { return BadRequest(e.Message); }
         }
 
-        // 検索
         [HttpGet]
         public IActionResult Get(string? type, string? category, string? startDate, string? endDate)
         {
             try
             {
                 var list = new List<Kakeibo>();
-
                 using var connection = new SQLiteConnection(connectionString);
                 connection.Open();
-
                 CreateTable(connection);
 
-                string sql = @"
-                SELECT Id, Name, Money, Type, Category, Date, Memo 
-                FROM Kakeibo 
-                WHERE 1=1
-                ";
+                // 基本となるSELECT文を取得
+                string sql = GetSql("SELECT_BASE");
 
-                if (!string.IsNullOrEmpty(type))
-                    sql += " AND Type = @type";
-
-                if (!string.IsNullOrEmpty(category))
-                    sql += " AND Category = @category";
-
-                if (!string.IsNullOrEmpty(startDate))
-                    sql += " AND date(Date) >= date(@startDate)";
-
-                if (!string.IsNullOrEmpty(endDate))
-                    sql += " AND date(Date) <= date(@endDate)";
+                if (!string.IsNullOrEmpty(type)) sql += " AND Type = @type";
+                if (!string.IsNullOrEmpty(category)) sql += " AND Category = @category";
+                if (!string.IsNullOrEmpty(startDate)) sql += " AND date(Date) >= date(@startDate)";
+                if (!string.IsNullOrEmpty(endDate)) sql += " AND date(Date) <= date(@endDate)";
 
                 using var cmd = new SQLiteCommand(sql, connection);
-
-                if (!string.IsNullOrEmpty(type))
-                    cmd.Parameters.AddWithValue("@type", type);
-
-                if (!string.IsNullOrEmpty(category))
-                    cmd.Parameters.AddWithValue("@category", category);
-
-                if (!string.IsNullOrEmpty(startDate))
-                    cmd.Parameters.AddWithValue("@startDate", startDate);
-
-                if (!string.IsNullOrEmpty(endDate))
-                    cmd.Parameters.AddWithValue("@endDate", endDate);
+                if (!string.IsNullOrEmpty(type)) cmd.Parameters.AddWithValue("@type", type);
+                if (!string.IsNullOrEmpty(category)) cmd.Parameters.AddWithValue("@category", category);
+                if (!string.IsNullOrEmpty(startDate)) cmd.Parameters.AddWithValue("@startDate", startDate);
+                if (!string.IsNullOrEmpty(endDate)) cmd.Parameters.AddWithValue("@endDate", endDate);
 
                 using var reader = cmd.ExecuteReader();
-
                 while (reader.Read())
                 {
                     list.Add(new Kakeibo
                     {
                         Id = Convert.ToInt32(reader["Id"]),
                         Name = reader["Name"]?.ToString() ?? "",
-                        Money = reader["Money"] != DBNull.Value ? Convert.ToInt32(reader["Money"]) : 0,
+                        Money = Convert.ToInt32(reader["Money"]),
                         Type = reader["Type"]?.ToString() ?? "",
                         Category = reader["Category"]?.ToString() ?? "",
                         Date = reader["Date"]?.ToString() ?? "",
                         Memo = reader["Memo"]?.ToString() ?? ""
                     });
                 }
-
                 return Ok(list);
             }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
+            catch (Exception e) { return BadRequest(e.Message); }
         }
 
-        // 削除
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -139,26 +113,19 @@ namespace kakeiboApp.Controllers
             {
                 using var connection = new SQLiteConnection(connectionString);
                 connection.Open();
-
                 CreateTable(connection);
 
-                string sql = "DELETE FROM Kakeibo WHERE Id = @id";
-
+                string sql = GetSql("DELETE");
                 using var cmd = new SQLiteCommand(sql, connection);
                 cmd.Parameters.AddWithValue("@id", id);
-
                 cmd.ExecuteNonQuery();
 
                 return Ok();
             }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
+            catch (Exception e) { return BadRequest(e.Message); }
         }
     }
 
-    // モデル
     public class Kakeibo
     {
         public int Id { get; set; }

@@ -365,3 +365,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# SQLite データベースファイルをすべて除外
+*.kakeibo.db
