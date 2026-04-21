@@ -48,6 +48,53 @@ async function loadData() {
     });
 }
 
+// ページが読み込まれた瞬間に実行
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. ダークモードの復元
+    const isDark = localStorage.getItem('darkMode') === 'true';
+    const html = document.documentElement;
+    const switchBtn = document.getElementById('darkModeSwitch');
+
+    if (isDark) {
+        html.setAttribute('data-bs-theme', 'dark');
+        if (switchBtn) switchBtn.checked = true;
+    }
+
+    // 2. カスタムカラーの復元
+    const savedColor = localStorage.getItem('themeColor') || '#0d6efd';
+    applyThemeColor(savedColor);
+
+    // カラーピッカーの初期値も保存された色に合わせる
+    const picker = document.getElementById('colorPicker');
+    if (picker) picker.value = savedColor;
+});
+
+// ダークモード切り替え
+function toggleDarkMode() {
+    const html = document.documentElement;
+    const isChecked = document.getElementById('darkModeSwitch').checked;
+
+    if (isChecked) {
+        html.setAttribute('data-bs-theme', 'dark');
+        localStorage.setItem('darkMode', 'true');
+    } else {
+        html.setAttribute('data-bs-theme', 'light');
+        localStorage.setItem('darkMode', 'false');
+    }
+}
+
+// カラーピッカー変更時
+function changeTheme(color) {
+    applyThemeColor(color);
+    localStorage.setItem('themeColor', color); // 保存
+}
+
+// 実際に色を適用する関数
+function applyThemeColor(color) {
+    // CSS変数を書き換える
+    document.documentElement.style.setProperty('--main-theme-color', color);
+}
+
 
 // 初期表示
 loadData();
