@@ -67,29 +67,11 @@
         <div class="text-center mt-4">
             <a href="breakdown.html" class="btn btn-primary btn-lg">一覧を見る</a>
         </div>
-
     </div>
 
-    <script>
-        async function add() {
-            const data = {
-                name: document.getElementById("name").value,
-                money: parseInt(document.getElementById("money").value),
-                type: document.getElementById("type").value,
-                category: document.getElementById("category").value,
-                date: document.getElementById("date").value,
-                memo: document.getElementById("memo").value
-            };
-
-            await fetch("/api/Kakeibo", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
-
-            alert("登録完了！");
-        }
-    </script>
+    <!-- JS連携 -->
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
 
 </body>
 </html>
