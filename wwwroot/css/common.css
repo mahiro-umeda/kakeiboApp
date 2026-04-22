@@ -59,3 +59,57 @@
         transform: translateY(0);
     }
 }
+
+.toggle-button-4 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100px;
+    height: 50px;
+    border-radius: 50px;
+    box-sizing: content-box;
+    background-color: #f2e01c33;
+    cursor: pointer;
+    transition: background-color .4s;
+}
+
+    .toggle-button-4:has(:checked) {
+        background-color: #1c3d5e33;
+    }
+
+    .toggle-button-4::before {
+        position: absolute;
+        left: 5px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background-color: #f2e01c;
+        content: '';
+        transition: left .4s;
+    }
+
+    .toggle-button-4:has(:checked)::before {
+        left: 50px;
+        background-color: #1c3d5e;
+    }
+
+    .toggle-button-4::after {
+        position: absolute;
+        left: 26px;
+        transform: translateX(-50%);
+        color: white;
+        font-weight: 600;
+        font-size: .9em;
+        content: 'Light';
+        transition: left .4s;
+    }
+
+    .toggle-button-4:has(:checked)::after {
+        left: 71px;
+        content: 'Dark';
+        color: #0d6efd;
+    }
+
+    .toggle-button-4 input {
+        display: none;
+    }

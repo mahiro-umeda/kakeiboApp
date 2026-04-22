@@ -16,6 +16,9 @@
     <!-- 自作CSS -->
     <link rel="stylesheet" href="/css/breakdown.css">
 
+
+    <link rel="stylesheet" href="css/darkmode.css">
+
     <!-- フォント -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 </head>
@@ -24,6 +27,9 @@
 
     <!-- ナビゲーション -->
     <nav class="navbar navbar-dark bg-primary px-3">
+        <label class="toggle-button-4">
+            <input type="checkbox" id="darkModeSwitch" onchange="toggleDarkMode()" />
+        </label>
 
         <div class="menu-box ms-auto d-flex align-items-center gap-2">
 
