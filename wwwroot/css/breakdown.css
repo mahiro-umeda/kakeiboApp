@@ -1,82 +1,94 @@
-﻿body {
+﻿/* 背景 */
+body {
     background: #f5f7fa;
 }
 
-/* ⭐ 合計カード */
+/* ===== 合計カード ===== */
 .summary-card {
-    display: flex !important;
-    flex-direction: row !important;
+    display: flex;
     justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 25px;
+    gap: 15px;
     background: white;
     padding: 20px;
     border-radius: 15px;
+    margin-bottom: 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-/* 横並びを絶対維持 */
-.summary-item {
-    flex: 1;
-    min-width: 0;
-    text-align: center;
-}
-
-/* 各項目 */
+/* 横並び */
 .summary-item {
     flex: 1;
     text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    transition: 0.2s;
 }
-
-    .summary-item:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
 
 /* ラベル */
 .summary-label {
-    font-size: 13px;
-    color: #777;
+    font-size: 14px;
+    color: #666;
 }
 
-/* 数字 */
+/* 数字（←色戻し） */
 .summary-value {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold;
+    color: black; /* ←ここで元に戻す */
 }
 
-/* 色 */
-.income-box {
-    background: #e3f2fd;
-    color: #36a2eb;
-}
-
-.expense-box {
-    background: #ffe5e5;
-    color: #ff6384;
-}
-
-.balance-box {
-    background: #f0f0f0;
-}
-
-/* ⭐ テーブルスクロール */
+/* ===== テーブルスクロール（重要） ===== */
 .table-box {
-    height: 400px;
+    max-height: 400px;
     overflow-y: auto;
     background: white;
-    padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* 戻るボタン */
+/* ヘッダー固定 */
+.table thead th {
+    position: sticky;
+    top: 0;
+    background: #f8f9fa;
+    z-index: 1;
+}
+
+/* ===== 戻るボタン ===== */
 .back-btn {
     position: fixed;
-    bottom: 20px;
     right: 20px;
+    bottom: 20px;
 }
+
+.menu-box {
+    position: relative;
+}
+
+.menu-btn {
+    cursor: pointer;
+    color: white;
+    font-size: 22px;
+}
+
+/* ドロップダウン */
+.menu-list {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: white;
+    border-radius: 10px;
+    min-width: 150px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 999;
+}
+
+    .menu-list a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: black;
+    }
+
+        .menu-list a:hover {
+            background: #f0f0f0;
+        }

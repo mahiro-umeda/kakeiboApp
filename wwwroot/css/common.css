@@ -1,12 +1,9 @@
-﻿body {
+﻿/* ナビバー影 */
+.navbar {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-    /* ナビバー */
-    .navbar {
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-
-/* メニュー */
+/* メニュー位置 */
 .menu-box {
     position: relative;
 }
@@ -15,14 +12,8 @@
 .menu-btn {
     cursor: pointer;
     color: white;
-    padding: 8px 15px;
-    border-radius: 10px;
-    font-weight: bold;
+    font-size: 22px;
 }
-
-    .menu-btn:hover {
-        background: rgba(255,255,255,0.35);
-    }
 
 /* メニュー本体 */
 .menu-list {
@@ -34,16 +25,32 @@
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     min-width: 180px;
     display: none;
+    z-index: 1000;
 }
 
+    /* メニュー項目 */
     .menu-list a {
         display: block;
-        padding: 12px 15px;
+        padding: 12px;
+        color: black;
         text-decoration: none;
-        color: #333;
     }
 
         .menu-list a:hover {
             background: #0d6efd;
             color: white;
         }
+        
+
+/* ふわっと表示 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

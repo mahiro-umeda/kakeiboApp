@@ -1,38 +1,35 @@
-﻿asylet pieChart;
+﻿let pieChart;
 let barChart;
 
-/* メニュー */
-function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-}
-
-document.addEventListener("click", function (e) {
-    const menu = document.getElementById("menu");
-    const btn = document.querySelector(".menu-btn");
-
-    if (!menu.contains(e.target) && !btn.contains(e.target)) {
-        menu.style.display = "none";
-    }
-});
-
-/* グラフ */
 async function loadCharts() {
 
     const res = await fetch("/api/Kakeibo");
     const data = await res.json();
 
-    /* 円グラフ */
+    // ⭐ 月取得
+    const selectedMonth = document.getElementById("monthFilter").value;
+
+    let filteredData = data;
+
+    if (selectedMonth) {
+        filteredData = data.filter(x => {
+            const d = new Date(x.date);
+            const y = d.getFullYear();
+            const m = ("0" + (d.getMonth() + 1)).slice(-2);
+            return `${y}-${m}` === selectedMonth;
+        });
+    }
+
+    /* ===== 円グラフ ===== */
     const categoryTotals = {};
 
-    data.forEach(x => {
+    filteredData.forEach(x => {
         if (x.type === "支出") {
             const money = Number(x.money);
 
             if (!categoryTotals[x.category]) {
                 categoryTotals[x.category] = 0;
             }
-
             categoryTotals[x.category] += money;
         }
     });
@@ -61,11 +58,11 @@ async function loadCharts() {
         }
     });
 
-    /* 棒グラフ */
+    /* ===== 棒グラフ ===== */
     const monthlyIncome = Array(12).fill(0);
     const monthlyExpense = Array(12).fill(0);
 
-    data.forEach(x => {
+    filteredData.forEach(x => {
         const date = new Date(x.date);
         const month = date.getMonth();
         const money = Number(x.money);
@@ -114,5 +111,5 @@ async function loadCharts() {
     });
 }
 
-/* 実行 */
+// 初期表示
 loadCharts();

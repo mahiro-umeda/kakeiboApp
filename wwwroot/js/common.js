@@ -1,44 +1,66 @@
-// JavaScript source code
-
-//メニュー
+// 開閉
 function toggleMenu() {
     const menu = document.getElementById("menu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    if (!menu) return;
+
+    menu.style.display =
+        (menu.style.display === "block") ? "none" : "block";
 }
 
-//api
-document.getElementById("Add").addEventListener("submit", async (e) => {
-    e.preventDefault();
+// 外クリックで閉じる（追加）
+document.addEventListener("click", function (e) {
+    const menu = document.getElementById("menu");
+    const btn = document.querySelector(".menu-btn");
 
-    const data = {
-        name: document.getElementById("name").value,
-        money: parseInt(document.getElementById("money").value),
-        type: document.getElementById("type").value,
-        type2: document.getElementById("type2").value,
-        date: document.getElementById("date").value,
-        memo: document.getElementById("memo").value
-    };
+    if (!menu || !btn) return;
 
-    // POST（保存）
-    await fetch("/api/kakeibo", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    });
-
-    // 更新表示
-    loadData();
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.style.display = "none";
+    }
 });
 
 
-// GET（一覧取得）
+
+// ⭐ フォームがあるページだけ動くようにする
+const form = document.getElementById("Add");
+
+if (form) {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const data = {
+            name: document.getElementById("name").value,
+            money: parseInt(document.getElementById("money").value),
+            type: document.getElementById("type").value,
+            type2: document.getElementById("type2")?.value || "",
+            date: document.getElementById("date").value,
+            memo: document.getElementById("memo").value
+        };
+
+        // POST（保存）
+        await fetch("/api/kakeibo", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        // 再読み込み（必要なページだけ）
+        if (typeof loadData === "function") {
+            loadData();
+        }
+    });
+}
+
 async function loadData() {
+
+    const container = document.getElementById("list");
+    if (!container) return; // ⭐ 他ページでエラー防止
+
     const res = await fetch("/api/kakeibo");
     const data = await res.json();
 
-    console.log(data); //配列出れば正解
+    console.log(data);
 
-    const container = document.getElementById("list");
     container.innerHTML = "";
 
     data.forEach(item => {
@@ -48,7 +70,7 @@ async function loadData() {
     });
 }
 
-
-// 初期表示
-loadData();
-
+// ⭐ listがあるページだけ実行
+if (document.getElementById("list")) {
+    loadData();
+}
