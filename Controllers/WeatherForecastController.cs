@@ -156,6 +156,31 @@ namespace kakeiboApp.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, [FromBody] Kakeibo data)
+        {
+            using var connection = new SQLiteConnection(connectionString);
+            connection.Open();
+
+            string sql = @"
+            UPDATE Kakeibo
+            SET 
+                 Category = COALESCE(NULLIF(@category, ''), Category),
+                 Type = COALESCE(NULLIF(@type, ''), Type)
+                 WHERE Id = @id
+                  ";
+
+            using var cmd = new SQLiteCommand(sql, connection);
+            cmd.Parameters.AddWithValue("@category", data.Category ?? "");
+            cmd.Parameters.AddWithValue("@type", data.Type ?? "");
+            cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
+
+            return Ok();
+        }
+
     }
 
     // モデル
