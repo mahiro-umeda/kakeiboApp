@@ -10,21 +10,40 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/summary.css">
 
+    <!-- フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
+    <!-- ナビ -->
     <nav class="navbar navbar-dark bg-primary px-3">
-        <div class="menu-box ms-auto">
+
+        <div class="menu-box ms-auto d-flex align-items-center gap-2">
+
+            <!-- フォント選択 -->
+            <select id="fontSelect" class="form-select" style="width:160px;">
+                <option value="'Noto Sans JP', sans-serif">標準</option>
+                <option value="'Yu Gothic', sans-serif">ゴシック</option>
+                <option value="'MS Mincho', serif">明朝</option>
+                <option value="'Courier New', monospace">等幅</option>
+            </select>
+
+            <!-- ハンバーガー -->
             <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
+            <!-- メニュー -->
             <div class="menu-list" id="menu">
                 <a href="index.html">✒新規追加</a>
                 <a href="breakdown.html">📄明細一覧</a>
                 <a href="summary.html">📊集計</a>
             </div>
+
         </div>
+
     </nav>
 
     <div class="container">
@@ -32,29 +51,33 @@
         <h2 class="title">カテゴリ別支出割合</h2>
 
         <!-- ⭐ 月検索 -->
-        <div class="text-center mb-3">
-            <input type="month" id="monthFilter" class="form-control w-25 d-inline">
-            <button class="btn btn-primary" onclick="loadCharts()">検索</button>
+        <div class="text-center mb-4">
+            <input type="month" id="monthFilter" class="form-control d-inline w-auto">
+            <button class="btn btn-primary ms-2" onclick="loadCharts()">検索</button>
         </div>
 
+        <!-- 円グラフ -->
         <div class="box">
             <canvas id="pieChart"></canvas>
         </div>
 
         <h2 class="title">月別収支</h2>
 
+        <!-- 棒グラフ -->
         <div class="box">
             <canvas id="barChart"></canvas>
         </div>
 
     </div>
 
+    <!-- 戻る -->
     <div class="back-btn">
         <button class="btn btn-secondary" onclick="location.href='breakdown.html'">
             戻る
         </button>
     </div>
 
+    <!-- JS -->
     <script src="js/common.js"></script>
     <script src="js/summary.js"></script>
 
