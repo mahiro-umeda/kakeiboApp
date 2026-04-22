@@ -1,4 +1,9 @@
-﻿/* ナビバー影 */
+﻿/*下端に余白*/
+.body{
+    margin-bottom:20px;
+}
+
+/* ナビバー影 */
 .navbar {
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
