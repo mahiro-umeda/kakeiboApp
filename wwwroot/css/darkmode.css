@@ -1,0 +1,57 @@
+/* リセット用 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 通常CSS */
+header {
+  background-color: cyan;
+  text-align: center;
+}
+
+main {
+  padding: 0 20px;
+}
+
+# darkmodeBtn {
+  background-color: gray;
+  color: white;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+# darkmodeBtn:hover {
+  opacity: 0.7;
+}
+
+/* ダークモードCSS */
+.dark {
+  background-color: black;
+  color: silver;
+}
+
+.dark header {
+  background-color: midnightblue;
+}
+
+.dark #darkmodeBtn {
+  background-color: silver;
+  color: black;
+}
+
+
+:root {
+  --background: #fff;
+  --text-color: #333;
+  --button-bg: #ffac7533;
+  --button-color: #ffac75;
+}
+:root.dark {
+  --background: #333;
+  --text-color: #ddd;
+  --button-bg: #57525233;
+  --button-color: #575252;
+}S
