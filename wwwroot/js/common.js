@@ -94,3 +94,32 @@ async function loadData() {
 if (document.getElementById("list")) {
     loadData();
 }
+
+function toggleDarkMode() {
+    const switchBtn = document.getElementById('darkModeSwitch');
+    const html = document.documentElement;
+
+    if (switchBtn.checked) {
+        // オン（チェックあり）の時の処理
+        html.setAttribute('data-bs-theme', 'dark');
+        localStorage.setItem('darkMode', 'true');
+        console.log("ダークモードON");
+    } else {
+        // オフ（チェックなし）の時の処理
+        html.setAttribute('data-bs-theme', 'light');
+        localStorage.setItem('darkMode', 'false');
+        console.log("ダークモードOFF");
+    }
+}
+
+/** * 画面遷移しても状態を維持するための処理
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const isDark = localStorage.getItem('darkMode') === 'true';
+    const switchBtn = document.getElementById('darkModeSwitch');
+
+    if (isDark) {
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+        if (switchBtn) switchBtn.checked = true;
+    }
+});
