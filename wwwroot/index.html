@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
 
+    <!-- フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,15 +21,28 @@
     <!-- ナビ -->
     <nav class="navbar navbar-dark bg-primary px-3">
 
-        <div class="menu-box ms-auto">
+        <div class="menu-box ms-auto d-flex align-items-center gap-2">
+
+            <!-- フォント選択 -->
+            <select id="fontSelect" class="form-select" style="width:160px;">
+                <option value="'Noto Sans JP', sans-serif">標準</option>
+                <option value="'Yu Gothic', sans-serif">ゴシック</option>
+                <option value="'MS Mincho', serif">明朝</option>
+                <option value="'Courier New', monospace">等幅</option>
+            </select>
+
+            <!-- ハンバーガー -->
             <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
+            <!-- メニュー -->
             <div class="menu-list" id="menu">
                 <a href="index.html">新規追加</a>
                 <a href="breakdown.html">明細一覧</a>
                 <a href="summary.html">集計</a>
             </div>
+
         </div>
+
     </nav>
 
     <!-- タイトル -->
@@ -48,14 +63,14 @@
                 </div>
 
                 <div class="col-md-2">
-                    <select id="type" class="form-control">
+                    <select id="type" class="form-select">
                         <option value="収入">収入</option>
                         <option value="支出">支出</option>
                     </select>
                 </div>
 
                 <div class="col-md-2">
-                    <select id="category" class="form-control">
+                    <select id="category" class="form-select">
                         <option value="家賃">家賃</option>
                         <option value="食費">食費</option>
                         <option value="交通費">交通費</option>
@@ -90,5 +105,6 @@
     <!--JS連携-->
     <script src="js/common.js"></script>
     <script src="js/index.js"></script>
+
 </body>
 </html>

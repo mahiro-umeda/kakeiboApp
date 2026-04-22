@@ -19,7 +19,27 @@ document.addEventListener("click", function (e) {
     }
 });
 
+// フォント変更
+const fontSelect = document.getElementById("fontSelect");
 
+if (fontSelect) {
+
+    // 保存されたフォント読み込み
+    const savedFont = localStorage.getItem("font");
+    if (savedFont) {
+        document.body.style.fontFamily = savedFont;
+        fontSelect.value = savedFont;
+    }
+
+    // 変更時
+    fontSelect.addEventListener("change", function () {
+        const font = this.value;
+        document.body.style.fontFamily = font;
+
+        // 保存
+        localStorage.setItem("font", font);
+    });
+}
 
 // ⭐ フォームがあるページだけ動くようにする
 const form = document.getElementById("Add");
