@@ -18,6 +18,58 @@
     --accent-color: #0d6efd; /* 初期値の青 */
 }
 
+[data-theme="pastelblue"] {
+    --accent-color: #7fbfff;
+}
+
+[data-theme="pastelgreen"] {
+    --accent-color: #7fff7f;
+}
+
+[data-theme="pastelorange"] {
+    --accent-color: #ffbf7f;
+}
+
+[data-theme="pastelpink"] {
+    --accent-color: #ff7fbf;
+}
+
+[data-theme="pastelred"] {
+    --accent-color: #ff7f7f;
+}
+
+[data-theme="pastelskyblue"] {
+    --accent-color: #7fffff;
+}
+
+[data-theme="pastelyellow"] {
+    --accent-color: #ffff7f;
+}
+
+[data-theme="vividblue"] {
+    --accent-color: #007bff;
+}
+
+[data-theme="vividgreen"] {
+    --accent-color: #28a745;
+}
+
+[data-theme="vividorange"] {
+    --accent-color: #fd7e14;
+}
+
+[data-theme="vividpink"] {
+    --accent-color: #e83e8c;
+}
+
+[data-theme="vividskyblue"] {
+    --accent-color: #17a2b8;
+}
+
+[data-theme="vividyellow"] {
+    --accent-color: #ffc107;
+}
+
 /* ナビバーやボタンなど、色を変えたい場所に一括適用 */
 .navbar.navbar-dark.bg-primary.px-3,
 .btn.btn-primary,

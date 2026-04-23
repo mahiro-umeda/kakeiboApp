@@ -126,19 +126,3 @@
     .theme-btn:hover {
         opacity: 0.8;
     }
-
-/*テーマカラー*/
-body[data-theme="lightblue"] {
-    background: #d6f0ff;
-    color: #000;
-}
-
-body[data-theme="pastel"] {
-    background: #fff6f9;
-    color: #333;
-}
-
-body[data-theme="vivid"] {
-    background: #111;
-    color: #fff;
-}

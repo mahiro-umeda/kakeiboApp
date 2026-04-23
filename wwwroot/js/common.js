@@ -112,9 +112,41 @@ function toggleDarkMode() {
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. ダークモードの復元
+    const isDark = localStorage.getItem('darkMode') === 'true';
+    document.documentElement.setAttribute('data-bs-theme', isDark ? 'dark' : 'light');
+    const switchBtn = document.getElementById('darkModeSwitch');
+    if (switchBtn) switchBtn.checked = isDark;
+
+    // 2. アクセントカラー（テーマ）の復元
+    const savedTheme = localStorage.getItem('selectedTheme');
+    if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+    }
+
+    // 3. フォントの復元
+    const savedFont = localStorage.getItem("font");
+    const fontSelect = document.getElementById("fontSelect");
+    if (savedFont) {
+        document.body.style.fontFamily = savedFont;
+        if (fontSelect) fontSelect.value = savedFont;
+    }
+});
+
+// ダークモード切替関数
+function toggleDarkMode() {
+    const switchBtn = document.getElementById('darkModeSwitch');
+    const isDark = switchBtn.checked;
+    document.documentElement.setAttribute('data-bs-theme', isDark ? 'dark' : 'light');
+    localStorage.setItem('darkMode', isDark);
+}
+
+
+
 /** * 画面遷移しても状態を維持するための処理
  */
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
     const isDark = localStorage.getItem('darkMode') === 'true';
     const switchBtn = document.getElementById('darkModeSwitch');
 
@@ -131,14 +163,6 @@ document.querySelectorAll(".theme-btn").forEach(btn => {
 
         document.body.setAttribute("data-theme", theme);
     });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    // 保存されたアクセントカラーがあれば読み込む
-    const savedAccent = localStorage.getItem('accentColor');
-    if (savedAccent) {
-        document.documentElement.style.setProperty('--accent-color', savedAccent);
-    }
 });
 
 // 設定画面のボタンにクリックイベントをつける
@@ -163,3 +187,21 @@ document.querySelectorAll('.theme-btn').forEach(button => {
 function applyAccentColor(color) {
     document.documentElement.style.setProperty('--accent-color', color);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    // --- 1. アクセントカラーの復元 ---
+    const savedTheme = localStorage.getItem('selectedTheme');
+    if (savedTheme) {
+        // bodyに属性をセットしてCSS変数を発動させる
+        document.body.setAttribute('data-theme', savedTheme);
+    }
+
+    // --- 2. ダークモードの復元 ---
+    const isDark = localStorage.getItem('darkMode') === 'true';
+    document.documentElement.setAttribute('data-bs-theme', isDark ? 'dark' : 'light');
+
+    const switchBtn = document.getElementById('darkModeSwitch');
+    if (switchBtn) {
+        switchBtn.checked = isDark;
+    }
+});*/
