@@ -8,6 +8,10 @@
     background-color: #161b22 !important; 
     border: 1px solid #30363d; 
 }
+[data-bs-theme="dark"] .table table-hover align-middle {
+    background-color: #161b22 !important;
+    color: #1c3d5e
+}
 
 [data-bs-theme="dark"] #fontSelect.form-select {
     background-color: #1c3d5e !important;

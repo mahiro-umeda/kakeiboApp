@@ -70,6 +70,11 @@
     --accent-color: #ffc107;
 }
 
+[data-theme="monotone"] {
+    --accent-color: #606060;
+}
+
+
 /* ナビバーやボタンなど、色を変えたい場所に一括適用 */
 .navbar.navbar-dark.bg-primary.px-3,
 .btn.btn-primary,
@@ -77,4 +82,75 @@
 .btn.btn-primary.w-100 {
     background-color: var(--accent-color) !important;
     border-color: var(--accent-color) !important;
+}
+
+/* 設定画面専用のスタイル */
+.color-section h6 {
+    font-weight: bold;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.accent-chip {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    min-width: 120px;
+    text-align: left;
+}
+
+/* ダークモード時のボタンの見た目 */
+[data-bs-theme="dark"] .accent-chip {
+    background: #2b3035;
+    border-color: #444;
+    color: white;
+}
+
+[data-bs-theme="light"] .accent-chip {
+    background: #ffffff;
+    border-color: #ddd;
+    color: #333;
+}
+
+.accent-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 選択中のボタンを強調（JSで active クラスを制御するとより良い） */
+.accent-chip:active {
+    transform: scale(0.95);
+}
+
+.theme-btn {
+    /* --- サイズを一律に固定 --- */
+    width: 140px; /* すべてのボタンを140pxに固定（お好みで調整） */
+    height: 45px; /* 高さも揃えるとより綺麗です */
+    /* --- レイアウトの調整 --- */
+    display: inline-flex;
+    align-items: center; /* 文字を上下中央に */
+    justify-content: flex-start; /* 左側の色線を基準に左寄せ */
+    padding: 0 12px;
+    margin: 5px;
+    /* --- 見た目の調整 --- */
+    background: #2b3035; /* ダークモードに合わせた色 */
+    color: white;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* 画面が狭い時にボタン同士がくっつかないように外枠で制御 */
+.colorSelect {
+    display: flex;
+    flex-wrap: wrap; /* 画面端で自動改行 */
+    gap: 10px; /* ボタン間の隙間を一定にする */
+    justify-content: flex-start; /* 左詰めで並べる */
 }
