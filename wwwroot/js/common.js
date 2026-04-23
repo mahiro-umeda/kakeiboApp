@@ -95,23 +95,6 @@ if (document.getElementById("list")) {
     loadData();
 }
 
-function toggleDarkMode() {
-    const switchBtn = document.getElementById('darkModeSwitch');
-    const html = document.documentElement;
-
-    if (switchBtn.checked) {
-        // オン（チェックあり）の時の処理
-        html.setAttribute('data-bs-theme', 'dark');
-        localStorage.setItem('darkMode', 'true');
-        console.log("ダークモードON");
-    } else {
-        // オフ（チェックなし）の時の処理
-        html.setAttribute('data-bs-theme', 'light');
-        localStorage.setItem('darkMode', 'false');
-        console.log("ダークモードOFF");
-    }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     // 1. ダークモードの復元
     const isDark = localStorage.getItem('darkMode') === 'true';
