@@ -1,1 +1,17 @@
-#ffbf7f
+/*#ffbf7f*/
+
+[data-bs-theme="pastelorange"] .navbar.navbar-dark.bg-primary.px-3 {
+    background-color: #ffbf7f;
+}
+
+[data-bs-theme="pastelorange"] .btn.btn-primary {
+    background-color: #ffbf7f;
+}
+
+    [data-bs-theme="pastelorange"] .btn.btn-primary.ms-2 {
+        background-color: #ffbf7f;
+    }
+
+    [data-bs-theme="pastelorange"] .btn.btn-primary.w-100 {
+        background-color: #ffbf7f;
+    }
