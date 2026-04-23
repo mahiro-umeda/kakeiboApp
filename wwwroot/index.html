@@ -58,18 +58,25 @@
     <div class="wrapper">
         <div class="form-card">
 
+           <form id="Add">
+
             <div class="row g-3">
 
                 <div class="col-md-2">
-                    <input id="name" class="form-control" placeholder="内容">
+                    <input id="name" class="form-control" placeholder="内容" required>
                 </div>
 
                 <div class="col-md-2">
-                    <input id="money" type="number" class="form-control" placeholder="金額">
+                    <input id="money" type="number" class="form-control" placeholder="金額" required>
                 </div>
 
                 <div class="col-md-2">
+<<<<<<< HEAD
                     <select id="type" class="form-select">
+=======
+                    <select id="type" class="form-select" >
+                        <option value="収入">収入</option>
+>>>>>>> 8b6ffa51cd27b90093a0712cc170f0013c1e2259
                         <option value="支出">支出</option>
                         <option value="収入">収入</option>
                     </select>
@@ -92,7 +99,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <input id="date" type="date" class="form-control">
+                    <input id="date" type="date" class="form-control" required>
                 </div>
 
                 <div class="col-md-2">
@@ -101,10 +108,18 @@
 
             </div>
 
+<<<<<<< HEAD
             <div class="text-center mt-4">
                 <button class="btn btn-primary" onclick="add()">登録</button>
             </div>
 
+=======
+            
+               <div class="text-center mt-4">
+                   <button type="submit" class="btn btn-success">登録</button>
+               </div>
+            </form>
+>>>>>>> 8b6ffa51cd27b90093a0712cc170f0013c1e2259
         </div>
     </div>
 
