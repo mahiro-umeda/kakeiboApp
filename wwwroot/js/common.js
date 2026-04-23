@@ -123,3 +123,43 @@ document.addEventListener('DOMContentLoaded', () => {
         if (switchBtn) switchBtn.checked = true;
     }
 });
+
+//テーマカラー変更
+document.querySelectorAll(".theme-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const theme = btn.dataset.theme;
+
+        document.body.setAttribute("data-theme", theme);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 保存されたアクセントカラーがあれば読み込む
+    const savedAccent = localStorage.getItem('accentColor');
+    if (savedAccent) {
+        document.documentElement.style.setProperty('--accent-color', savedAccent);
+    }
+});
+
+// 設定画面のボタンにクリックイベントをつける
+document.querySelectorAll('.theme-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const theme = button.getAttribute('data-theme');
+        let selectedColor = '#0d6efd'; // デフォルト
+
+        // ボタンのデータに合わせて色を振り分ける
+        if (theme === 'vivid') selectedColor = '#ff0000';      // ビビッド（赤例）
+        if (theme === 'pastel') selectedColor = '#ffb7c5';     // パステル（ピンク例）
+        if (theme === 'lightblue') selectedColor = '#7fbfff';  // パステルブルー
+
+        // 1. 画面に即時反映
+        applyAccentColor(selectedColor);
+        // 2. localStorageに保存（画面遷移しても消えないように）
+        localStorage.setItem('accentColor', selectedColor);
+    });
+});
+
+// 実際にCSS変数を書き換える関数（common.jsに置いておくと全画面で使い回せます）
+function applyAccentColor(color) {
+    document.documentElement.style.setProperty('--accent-color', color);
+}

@@ -1,17 +1,17 @@
 /*#7fbfff*/
 
-[data-bs-theme="pastelblue"] .navbar.navbar-dark.bg-primary.px-3{
+[data-theme="pastelblue"] .navbar.navbar-dark.bg-primary.px-3{
     background-color: #7fbfff;
 }
 
-[data-bs-theme="pastelblue"] .btn.btn-primary {
+[data-theme="pastelblue"] .btn.btn-primary {
     background-color: #7fbfff;
 }
 
-[data-bs-theme="pastelblue"] .btn.btn-primary.ms-2 {
+[data-theme="pastelblue"] .btn.btn-primary.ms-2 {
     background-color: #7fbfff;
 }
 
-[data-bs-theme="pastelblue"] .btn.btn-primary.w-100 {
+[data-theme="pastelblue"] .btn.btn-primary.w-100 {
     background-color: #7fbfff;
 }

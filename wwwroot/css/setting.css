@@ -1,0 +1,28 @@
+﻿body
+{
+}
+.theme-btn {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+}
+
+    .theme-btn:hover {
+        opacity: 0.8;
+    }
+
+/* ベースのアクセント（デフォルト） */
+:root {
+    --accent-color: #0d6efd; /* 初期値の青 */
+}
+
+/* ナビバーやボタンなど、色を変えたい場所に一括適用 */
+.navbar.navbar-dark.bg-primary.px-3,
+.btn.btn-primary,
+.btn.btn-primary.ms-2,
+.btn.btn-primary.w-100 {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+}
