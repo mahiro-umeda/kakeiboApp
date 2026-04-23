@@ -123,3 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (switchBtn) switchBtn.checked = true;
     }
 });
+
+//テーマカラー変更
+document.querySelectorAll(".theme-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const theme = btn.dataset.theme;
+
+        document.body.setAttribute("data-theme", theme);
+    });
+});

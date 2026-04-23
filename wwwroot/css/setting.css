@@ -1,0 +1,14 @@
+﻿body
+{
+}
+.theme-btn {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+}
+
+    .theme-btn:hover {
+        opacity: 0.8;
+    }

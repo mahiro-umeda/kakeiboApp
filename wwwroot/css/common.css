@@ -113,3 +113,32 @@
     .toggle-button-4 input {
         display: none;
     }
+
+    /*テーマカラーボタン*/
+.theme-btn {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+}
+
+    .theme-btn:hover {
+        opacity: 0.8;
+    }
+
+/*テーマカラー*/
+body[data-theme="lightblue"] {
+    background: #d6f0ff;
+    color: #000;
+}
+
+body[data-theme="pastel"] {
+    background: #fff6f9;
+    color: #333;
+}
+
+body[data-theme="vivid"] {
+    background: #111;
+    color: #fff;
+}
