@@ -28,9 +28,16 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+<<<<<<< HEAD
+//app.UseHttpsRedirection();
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
+=======
 //ミドルウェア
 app.UseDefaultFiles();   // index.htmlを自動で返す
 app.UseStaticFiles();　//wwwroot(HTML,CSS,JS)を配信
+>>>>>>> ca8af12a351ece1b03947d27c893ff060209f6e4
 app.UseAuthorization();
 app.MapControllers(); //URLが来たらControllerへ（GET/api/kakeibo → Controllerの[HttpGet]）
 
