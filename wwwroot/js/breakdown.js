@@ -110,7 +110,7 @@ async function updateData(id) {
         type: document.getElementById(`edit-type-${id}`).value,
         category: document.getElementById(`edit-category-${id}`).value,
         money: Number(document.getElementById(`edit-money-${id}`).value),
-        date: tr.getElementsByTagName("td")[0].innerText,
+        date: document.getElementById(`edit-date-${id}`).value,
         memo: document.getElementById(`edit-memo-${id}`).value
     };
 
