@@ -1,4 +1,7 @@
-﻿async function add() {
+﻿document.getElementById("kakeiboForm").addEventListener("submit", async function (e) {
+    // フォームのデフォルトの挙動（ページ遷移）を防止
+    e.preventDefault();
+
     const data = {
         name: document.getElementById("name").value,
         money: Number(document.getElementById("money").value),
@@ -8,11 +11,18 @@
         memo: document.getElementById("memo").value
     };
 
-    await fetch("/api/Kakeibo", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    });
+    try {
+        const response = await fetch("/api/Kakeibo", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
 
-    alert("登録完了");
-}
+        if (response.ok) {
+            alert("登録完了");
+            this.reset(); // フォームをクリア
+        }
+    } catch (error) {
+        console.error("エラーが発生しました:", error);
+    }
+});

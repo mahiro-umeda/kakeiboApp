@@ -156,6 +156,57 @@ namespace kakeiboApp.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        // 更新 (PUT)
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] Kakeibo data)
+        {
+            try
+            {
+                using var connection = new SQLiteConnection(connectionString);
+                connection.Open();
+
+                // 念のためテーブル確認
+                CreateTable(connection);
+
+                string sql = @"
+                UPDATE Kakeibo 
+                SET Name = @name, 
+                    Money = @money, 
+                    Type = @type, 
+                    Category = @category, 
+                    Date = @date, 
+                    Memo = @memo
+                WHERE Id = @id
+                ";
+
+                using var cmd = new SQLiteCommand(sql, connection);
+
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@name", data.Name ?? "");
+                cmd.Parameters.AddWithValue("@money", data.Money);
+                cmd.Parameters.AddWithValue("@type", data.Type ?? "");
+                cmd.Parameters.AddWithValue("@category", data.Category ?? "");
+                cmd.Parameters.AddWithValue("@date", data.Date ?? "");
+                cmd.Parameters.AddWithValue("@memo", data.Memo ?? "");
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected == 0)
+                {
+                    return NotFound("指定されたIDのデータが見つかりません。");
+                }
+
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+
+
     }
 
     // モデル
