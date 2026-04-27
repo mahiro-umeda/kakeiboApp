@@ -53,8 +53,10 @@ async function loadCharts() {
         },
         options: {
             plugins: {
-                legend: { position: "bottom" }
-            }
+                legend: {
+                    position: "bottom",
+                }
+            },
         }
     });
 
@@ -102,10 +104,14 @@ async function loadCharts() {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { position: "top" }
+                legend: { 
+                    position: "top",
+                }
             },
             scales: {
-                y: { beginAtZero: true }
+                y: { 
+                    beginAtZero: true,
+                },
             }
         }
     });
