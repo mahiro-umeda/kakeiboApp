@@ -60,18 +60,20 @@
     }
 }
 
-// ⭐ ポイント：editMode と updateData は loadData の「外」に出す
+// ポイント：editMode と updateData は loadData の「外」に出す
+//id を引数として、編集ボタンを押すと、そのidの行だけ、編集対象とする
 function editMode(id) {
     const tr = document.getElementById(`row-${id}`);
     const cells = tr.getElementsByTagName("td");
 
-    const name = cells[1].innerText;
-    const type = cells[2].innerText;
-    const category = cells[3].innerText;
+    //cells[0]は日付
+    const name = cells[1].innerText;   //内容
+    const type = cells[2].innerText;   //収入or支出
+    const category = cells[3].innerText; //カテゴリ
     const money = cells[4].innerText.replace(/,/g, ''); // カンマを除去して取得
     const memo = cells[5].innerText;
 
-    cells[1].innerHTML = `<input type="text" id="edit-name-${id}" class="form-control form-control-sm" value="${name}">`;
+    cells[1].innerHTML = `<input type="text" id="edit-name-${id}" class="form-control form-control-sm" value="${name}">`;  //  .innerHTML =新しいHTMLに書き換え
     cells[2].innerHTML = `
         <select id="edit-type-${id}" class="form-select form-select-sm">
             <option value="支出" ${type === '支出' ? 'selected' : ''}>支出</option>
