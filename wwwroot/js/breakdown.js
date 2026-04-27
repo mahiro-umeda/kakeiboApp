@@ -67,12 +67,14 @@ function editMode(id) {
     const cells = tr.getElementsByTagName("td");
 
     //cells[0]は日付
+    const date = cells[0].innerHTML;   //日付
     const name = cells[1].innerText;   //内容
     const type = cells[2].innerText;   //収入or支出
     const category = cells[3].innerText; //カテゴリ
     const money = cells[4].innerText.replace(/,/g, ''); // カンマを除去して取得
     const memo = cells[5].innerText;
 
+    cells[0].innerHTML = `<input type="date" id="edit-date-${id}" class="form-control form-control-sm" value="${date}">`;
     cells[1].innerHTML = `<input type="text" id="edit-name-${id}" class="form-control form-control-sm" value="${name}">`;  //  .innerHTML =新しいHTMLに書き換え
     cells[2].innerHTML = `
         <select id="edit-type-${id}" class="form-select form-select-sm">
