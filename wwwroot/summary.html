@@ -17,6 +17,10 @@
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!--カレンダー-->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
 </head>
 
 <body>
@@ -64,6 +68,12 @@
         <!-- 棒グラフ -->
         <div class="box">
             <canvas id="barChart"></canvas>
+        </div>
+
+        <!--カレンダー-->
+        <div class="box">
+            <h2 class="title">カレンダー</h2>
+            <div id="calendar"></div>
         </div>
 
     </div>

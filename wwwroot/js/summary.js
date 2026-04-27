@@ -111,5 +111,33 @@ async function loadCharts() {
     });
 }
 
-// 初期表示
-loadCharts();
+//カレンダー
+document.addEventListener("DOMContentLoaded", async function () {
+
+    const calendarEl = document.getElementById("calendar");
+    if (!calendarEl) return;
+
+    const res = await fetch("/api/Kakeibo");
+    const data = await res.json();
+    
+    const events = data.map(x => {
+        return {
+            id: x.id,
+            title: `${x.type}¥${x.money}`,
+            date: x.date
+        };
+        
+    });
+
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: "dayGridMonth",
+        locale: "ja",
+        events: events
+    });
+
+    calendar.render();
+
+
+    loadCharts();
+});
+
