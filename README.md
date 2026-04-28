@@ -10,7 +10,6 @@
 ## 🎨 自分好みの色で、毎日を彩る家計簿
 
 「家計簿はつけなきゃいけないけど、地味でなかなか続かない……」  
-そんな悩みを解決するために、**Wallet Keeper** は生まれました。
 
 その日の気分や自分のスタイルに合わせて、  
 パステルカラーやビビッドカラー、シックなモノトーンまで、UI全体を自由自在にカスタマイズ。
@@ -48,7 +47,25 @@ Chart.jsを使用した円グラフと棒グラフで、お金の流れを一目
 - **月別収支推移（棒グラフ）**  
   → 1年間の収入・支出のバランスを比較
 
-※グラフの文字色は、選択したテーマに合わせて自動で最適化されます。
+---
+
+## 📱 新規追加画面
+<img width="1911" height="943" alt="image" src="https://github.com/user-attachments/assets/22cf0882-b10a-4595-9e71-f17818942c66" />
+
+---
+
+### 🏠 明細一覧画面
+<img width="1894" height="932" alt="image" src="https://github.com/user-attachments/assets/61a16fdd-34dc-42c7-8a48-6a5d1ca9158e" />
+
+---
+
+### 📊 集計画面
+<img width="1890" height="938" alt="image" src="https://github.com/user-attachments/assets/ec37c12d-acad-419b-b809-ce061cc0c54a" />
+
+---
+
+### 🎨 設定画面
+<img width="1890" height="948" alt="image" src="https://github.com/user-attachments/assets/a397348c-79bb-4a19-bb13-1482e5747074" />
 
 ---
 
