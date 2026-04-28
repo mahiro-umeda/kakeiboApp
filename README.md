@@ -46,7 +46,7 @@ Chart.jsを使用した円グラフと棒グラフで、お金の流れを一目
   → 1年間の収入・支出のバランスを比較
 
 ---
-### 4. 📱 画面構成
+# 4. 📱 画面構成
 
 ## 📱 新規追加画面
 <img width="1911" height="943" alt="image" src="https://github.com/user-attachments/assets/22cf0882-b10a-4595-9e71-f17818942c66" />
