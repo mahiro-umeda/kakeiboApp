@@ -86,11 +86,33 @@ Chart.jsを使用した円グラフと棒グラフで、お金の流れを一目
 
 ---
 
+## 🛠 環境構築ガイド（初めての方向け）
+
+このアプリは **.NET SDK** を使用して動作します。  
+以下の手順に沿ってセットアップしてください。
+
+## .NET SDK のインストール
+
+### ▼ ダウンロード
+以下の公式サイトから .NET SDK をダウンロードします。
+
+👉 https://dotnet.microsoft.com/download
+
+### .NET SDKのバージョン確認
+```bash
+dotnet --version
+```
+
+
 ## 🚀 導入手順
+---
 
 ### 1. リポジトリをクローン
 ```bash
 git clone https://github.com/mahiro-umeda/kakeiboApp.git
+```
+```bash
+cd kakeiboApp
 ```
 
 ### 2. ビルド & 実行
