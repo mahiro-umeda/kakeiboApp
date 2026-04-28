@@ -117,5 +117,50 @@ async function loadCharts() {
     });
 }
 
-// 初期表示
-loadCharts();
+//カレンダー
+document.addEventListener("DOMContentLoaded", async function () {
+
+    const calendarEl = document.getElementById("calendar");
+    if (!calendarEl) return;
+
+    const res = await fetch("/api/Kakeibo");
+    const data = await res.json();
+    
+    
+    const grouped = {};
+
+    data.forEach(x => {
+        const date = x.date.substring(0, 10); 
+
+        if (!grouped[date]) {
+            grouped[date] = 0;
+        }
+
+        if (x.type === "収入") {
+            grouped[date] += x.money;
+        } else {
+            grouped[date] -= x.money;
+        }
+    });
+    const events = Object.keys(grouped).map(date => {
+        const total = grouped[date];
+
+        return {
+            title: total >= 0 ? `+¥${total}` : `-¥${Math.abs(total)}`,
+            date: date,
+            color: total >= 0 ? "blue" : "red"
+        };
+    });
+
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: "dayGridMonth",
+        locale: "ja",
+        events: events
+    });
+
+    calendar.render();
+
+
+    loadCharts();
+});
+

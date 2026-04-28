@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8" />
-    <title>家計簿アプリ</title>
+    <title>Wallet Keeper</title>
 
     <!--ファビコン-->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -30,7 +30,7 @@
 
             <!-- ハンバーガー -->
             <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
+            
             <!-- メニュー -->
             <div class="menu-list" id="menu">
                 <a href="index.html">✒新規追加</a>
@@ -44,60 +44,63 @@
     </nav>
 
     <!-- タイトル -->
-    <div class="title">家計簿</div>
+    <div class="title">Wallet Keeper</div>
 
     <!-- フォーム中央 -->
     <div class="wrapper">
         <div class="form-card">
+            
+            <form id="kakeiboForm">
 
-            <div class="row g-3">
+                <div class="row g-3">
 
-                <div class="col-md-2">
-                    <input id="name" class="form-control" placeholder="内容">
+                    <div class="col-md-2">
+                        <input id="name" class="form-control" placeholder="内容" required>  <!-- required は理論属性　フォーム-->
+                    </div>
+
+                    <div class="col-md-2">
+                        <input id="money" type="number" class="form-control" placeholder="金額" required>
+                    </div>
+
+                    <div class="col-md-2">
+                        <select id="type" class="form-select">
+                            <option value="支出">支出</option>
+                            <option value="収入">収入</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <select id="category" class="form-control">
+                            <option value="家賃">🏠 家賃</option>
+                            <option value="食費">🍎 食費</option>
+                            <option value="交通費">🚗 交通費</option>
+                            <option value="光熱費">💡 光熱費</option>
+                            <option value="日用品">🛒 日用品</option>
+                            <option value="医療費">🏥 医療費</option>
+                            <option value="ローン">💳 ローン</option>
+                            <option value="交際費">🎉 交際費</option>
+                            <option value="雑費">📝 雑費</option>
+                            <option value="給与">💰 給与</option>
+                            <option value="臨時収入">🎁 臨時収入</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <input id="date" type="date" class="form-control"  required>
+                    </div>
+
+                    <div class="col-md-2">
+                        <input id="memo" class="form-control" placeholder="メモ">
+                    </div>
+
                 </div>
 
-                <div class="col-md-2">
-                    <input id="money" type="number" class="form-control" placeholder="金額">
+                <div class="text-center mt-4">
+                    <button type=" submit"  class="btn btn-primary">登録</button>
                 </div>
+            </form>
 
-                <div class="col-md-2">
-                    <select id="type" class="form-select">
-                        <option value="支出">支出</option>
-                        <option value="収入">収入</option>
-                    </select>
-                </div>
-
-                <div class="col-md-2">
-                    <select id="category" class="form-control">
-                        <option value="家賃">🏠 家賃</option>
-                        <option value="食費">🍎 食費</option>
-                        <option value="交通費">🚗 交通費</option>
-                        <option value="光熱費">💡 光熱費</option>
-                        <option value="日用品">🛒 日用品</option>
-                        <option value="医療費">🏥 医療費</option>
-                        <option value="ローン">💳 ローン</option>
-                        <option value="交際費">🎉 交際費</option>
-                        <option value="雑費">📝 雑費</option>
-                        <option value="給与">💰 給与</option>
-                        <option value="臨時収入">🎁 臨時収入</option>
-                    </select>
-                </div>
-
-                <div class="col-md-2">
-                    <input id="date" type="date" class="form-control">
-                </div>
-
-                <div class="col-md-2">
-                    <input id="memo" class="form-control" placeholder="メモ">
-                </div>
-
-            </div>
-
-            <div class="text-center mt-4">
-                <button class="btn btn-primary" onclick="add()">登録</button>
-            </div>
-
-        </div>
+</div>
     </div>
 
     <!--JS連携-->

@@ -1,0 +1,99 @@
+# 👛 Wallet Keeper
+<img width="300" height="300" alt="ChatGPT Image 2026年4月28日 10_15_36" src="https://github.com/user-attachments/assets/eda12e26-6175-4f2d-a393-77fa5a8324cb" />
+
+---
+
+## 📋 機能一覧
+
+### 🧾 収支管理機能
+- 収入・支出の登録
+- カテゴリ別での管理
+- 日付ごとの記録保存
+- シンプルな1行入力フォームによる入力
+
+---
+
+## 🎨 自分好みの色で、毎日を彩る家計簿
+
+「家計簿はつけなきゃいけないけど、地味でなかなか続かない……」  
+
+その日の気分や自分のスタイルに合わせて、  
+パステルカラーやビビッドカラー、シックなモノトーンまで、UI全体を自由自在にカスタマイズ。
+
+お気に入りのデザインに囲まれることで、  
+億劫になりがちな収支管理を「ちょっと楽しい時間」に変えてくれます。
+
+---
+
+## ✨ 特徴
+
+### 1. 🎨 豊富なカスタムテーマ
+ボタン一つでデザインを切り替え可能。
+色のカスタムからフォントのカスタムもできるようにしました。
+
+ダークモードの実装により夜の家計簿タイムも、目に優しくリラックスして作業できます。
+
+---
+
+### 2. ⚡ 直感的な入力
+「まずは簡単に入力できること」を最優先に設計。
+ユーザーの方に継続して使ってもらう意識をして作りました。
+
+現在の技術を最大限に活かし、今の自分たちにできる「使いやすさ」を形にしました。
+
+---
+
+### 3. 📊 視覚的な収支分析
+Chart.jsを使用した円グラフと棒グラフで、お金の流れを一目で把握。
+
+- **カテゴリ別支出割合（円グラフ）**  
+  → どのカテゴリに使いすぎているか即座に判別
+
+- **月別収支推移（棒グラフ）**  
+  → 1年間の収入・支出のバランスを比較
+
+---
+# 4. 📱 画面構成
+
+### 📱 新規追加画面
+<img width="1911" height="943" alt="image" src="https://github.com/user-attachments/assets/22cf0882-b10a-4595-9e71-f17818942c66" />
+
+---
+
+### 🏠 明細一覧画面
+<img width="1894" height="932" alt="image" src="https://github.com/user-attachments/assets/61a16fdd-34dc-42c7-8a48-6a5d1ca9158e" />
+
+---
+
+### 📊 集計画面
+<img width="1890" height="938" alt="image" src="https://github.com/user-attachments/assets/ec37c12d-acad-419b-b809-ce061cc0c54a" />
+
+---
+
+### 🎨 設定画面
+<img width="1890" height="948" alt="image" src="https://github.com/user-attachments/assets/a397348c-79bb-4a19-bb13-1482e5747074" />
+
+---
+
+## 🛠 技術スタック
+
+| ジャンル | 技術 |
+|----------|------|
+| Backend  | C# / ASP.NET Core |
+| Frontend | HTML5 / CSS3 / JavaScript (Bootstrap 5) |
+| Database | SQLite |
+| Library  | Chart.js / Entity Framework Core |
+
+---
+
+## 🚀 導入手順
+
+### 1. リポジトリをクローン
+```bash
+git clone https://github.com/mahiro-umeda/kakeiboApp.git
+```
+
+### 2. ビルド & 実行
+```bash
+dotnet run
+```
