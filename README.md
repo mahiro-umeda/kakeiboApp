@@ -1,7 +1,15 @@
 # 👛 Wallet Keeper
 <img width="300" height="300" alt="ChatGPT Image 2026年4月28日 10_15_36" src="https://github.com/user-attachments/assets/eda12e26-6175-4f2d-a393-77fa5a8324cb" />
 
+---
 
+## 📋 機能一覧
+
+### 🧾 収支管理機能
+- 収入・支出の登録
+- カテゴリ別での管理
+- 日付ごとの記録保存
+- シンプルな1行入力フォームによる入力
 
 ---
 
@@ -76,16 +84,6 @@ Chart.jsを使用した円グラフと棒グラフで、お金の流れを一目
 | Frontend | HTML5 / CSS3 / JavaScript (Bootstrap 5) |
 | Database | SQLite |
 | Library  | Chart.js / Entity Framework Core |
-
----
-
-## 📋 機能一覧
-
-### 🧾 収支管理機能
-- 収入・支出の登録
-- カテゴリ別での管理
-- 日付ごとの記録保存
-- シンプルな1行入力フォームによる入力
 
 ---
 
