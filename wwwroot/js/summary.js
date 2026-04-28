@@ -53,8 +53,10 @@ async function loadCharts() {
         },
         options: {
             plugins: {
-                legend: { position: "bottom" }
-            }
+                legend: {
+                    position: "bottom",
+                }
+            },
         }
     });
 
@@ -102,10 +104,14 @@ async function loadCharts() {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { position: "top" }
+                legend: { 
+                    position: "top",
+                }
             },
             scales: {
-                y: { beginAtZero: true }
+                y: { 
+                    beginAtZero: true,
+                },
             }
         }
     });
@@ -120,13 +126,30 @@ document.addEventListener("DOMContentLoaded", async function () {
     const res = await fetch("/api/Kakeibo");
     const data = await res.json();
     
-    const events = data.map(x => {
+    
+    const grouped = {};
+
+    data.forEach(x => {
+        const date = x.date.substring(0, 10); 
+
+        if (!grouped[date]) {
+            grouped[date] = 0;
+        }
+
+        if (x.type === "収入") {
+            grouped[date] += x.money;
+        } else {
+            grouped[date] -= x.money;
+        }
+    });
+    const events = Object.keys(grouped).map(date => {
+        const total = grouped[date];
+
         return {
-            id: x.id,
-            title: `${x.type}¥${x.money}`,
-            date: x.date
+            title: total >= 0 ? `+¥${total}` : `-¥${Math.abs(total)}`,
+            date: date,
+            color: total >= 0 ? "blue" : "red"
         };
-        
     });
 
     const calendar = new FullCalendar.Calendar(calendarEl, {

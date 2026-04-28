@@ -28,15 +28,15 @@
 }
 
 [data-bs-theme="dark"] .container {
-    background-color: rgba(13, 110, 253, 0.25) !important;
+    background-color: rgb(17, 41, 77) !important;
 }
 
     [data-bs-theme="dark"] .container.mt-4 {
-        background-color: rgba(13, 110, 253, 0.25) !important;
+        background-color: rgb(17, 41, 77) !important;
     }
 
 [data-bs-theme="dark"] .summary-card {
-    background-color: #2171a4 !important;
+    background-color: rgba(13, 110, 253, 0.25) !important;
 }
 
 [data-bs-theme="dark"] .col-md-2 {
@@ -45,7 +45,7 @@
 }
 
 [data-bs-theme="dark"] .table.table-hover.align-middle {
-    color: #2171a4 !important;
+    color: #e9ecef !important;
 }
 
 [data-bs-theme="dark"] .summary-label {
@@ -60,29 +60,44 @@
     color: #e9ecef !important;
 }
 
-/*[data-bs-theme="dark"] .btn.btn-primary.w-100 {
-    background-color: #ff6a00 !important;
-    color: #e9ecef !important;
-}
-
-[data-bs-theme="dark"] .btn.btn-primary.ms-2{
-    background-color: #ff6a00 !important;
-}*/
-
 [data-bs-theme="dark"] .box {
-    background-color: #2171a4 !important;
+    background-color: #161b22 !important;
 }
-
-
-[data-bs-theme="dark"] .pieChart {
-    color: #e9ecef !important;
-}
-
 
 [data-bs-theme="dark"] .table-box {
-    background-color: #1c3d5e !important;
+    background-color: #103b79 !important;
 }
 
 [data-bs-theme="dark"] .table-light.sticky-top {
-    background-color: #2171a4 !important;
+    background-color: rgba(13, 110, 253, 0.25) !important;
+    color: #e9ecef !important;
+}
+
+[data-bs-theme="dark"] .table-date {
+    background-color: #103b79 !important;
+    color: #e9ecef !important;
+}
+[data-bs-theme="dark"] .table-content {
+    background-color: #103b79 !important;
+    color: #e9ecef !important;
+}
+[data-bs-theme="dark"] .table-type {
+    background-color: #103b79 !important;
+    color: #e9ecef !important;
+}
+[data-bs-theme="dark"] .table-category {
+    background-color: #103b79 !important;
+    color: #e9ecef !important;
+}
+[data-bs-theme="dark"] .table-amount {
+    background-color: #103b79 !important;
+    color: #e9ecef !important;
+}
+[data-bs-theme="dark"] .table-memo {
+    background-color: #103b79 !important;
+    color: #e9ecef !important;
+}
+[data-bs-theme="dark"] .table-delete {
+    background-color: #103b79 !important;
+    color: #e9ecef !important;
 }
