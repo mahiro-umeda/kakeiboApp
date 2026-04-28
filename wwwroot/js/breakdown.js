@@ -94,7 +94,7 @@ function editMode(id) {
             <option value="💰給与" ${category.includes('💰給与') ? 'selected' : ''}>💰 給与</option>
         </select>`;
     cells[4].innerHTML = `<input type="number" id="edit-money-${id}" class="form-control form-control-sm" value="${money}">`;
-    cells[5].innerHTML = `<textarea id="edit-memo-${id}" class="form-control form-control-sm" row="2">${memo}</textarea>`;
+    cells[5].innerHTML = `<textarea id="edit-memo-${id}" class="form-control form-control-sm" rows="2">${memo}</textarea>`;
     cells[6].innerHTML = `
         <div class="d-flex gap-1 justify-content-end">
             <button class="btn btn-success btn-sm" onclick="updateData(${id})">保存</button>
