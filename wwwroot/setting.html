@@ -42,30 +42,27 @@
 
     </nav>
 
-    <div class="row align-items-start mt-4">
-        <div class="col-md-3">
-            <div class="p-3 box shadow-sm h-100">
-                <h5 class="mb-3">フォントカスタム</h5>
-                <select id="fontSelect" class="form-select rounded-pill" style="max-width: 150px;">
-                    <option value="'Noto Sans JP', sans-serif">標準</option>
-                    <option value="'Yu Gothic', sans-serif">游ゴシック</option>
-                    <option value="'MS P Mincho', serif">MS P明朝</option>
-                    <option value="'MS Gothic', monospace">等幅</option>
-                </select>
-            </div>
+    <div class="d-flex flex-wrap align-items-start mt-4 gap-3">
+
+        <div class="p-3 box shadow-sm h-100" style="width: fit-content; min-width: 180px;">
+            <h5 class="mb-3">フォントカスタム</h5>
+            <select id="fontSelect" class="form-select rounded-pill" style="max-width: 140px;">
+                <option value="'Noto Sans JP', sans-serif">標準</option>
+                <option value="'Yu Gothic', sans-serif">游ゴシック</option>
+                <option value="'MS P Mincho', serif">MS P明朝</option>
+                <option value="'MS Gothic', monospace">等幅</option>
+            </select>
         </div>
 
-        <div class="col-md-7">
-            <div class="p-3 box shadow-sm h-100">
-                <h5 class="mb-2">背景カスタマイズ</h5>
-                <div class="d-flex align-items-center gap-2">
-                    <input type="file" id="bgFileInput" class="form-control form-control-sm rounded-pill" style="max-width: 350px;" accept="image/*">
+        <div class="p-3 box shadow-sm h-100" style="width: fit-content; min-width: 450px;">
+            <h5 class="mb-2">背景カスタマイズ</h5>
+            <div class="d-flex align-items-center gap-2">
+                <input type="file" id="bgFileInput" class="form-control form-control-sm rounded-pill" style="max-width: 290px;" accept="image/*">
 
-                    <button class="btn btn-primary btn-sm text-nowrap rounded-pill px-3" onclick="uploadBackgroundImage()">適用</button>
-                    <button class="btn btn-outline-secondary btn-sm text-nowrap rounded-pill px-3" onclick="clearBackgroundImage()">リセット</button>
-                </div>
-                <p class="small text-muted mt-2 mb-0">お気に入りの画像を壁紙に設定できます</p>
+                <button class="btn btn-primary btn-sm text-nowrap rounded-pill px-3" onclick="uploadBackgroundImage()">適用</button>
+                <button class="btn btn-outline-secondary btn-sm text-nowrap rounded-pill px-3" onclick="clearBackgroundImage()">リセット</button>
             </div>
+            <p class="small text-muted mt-2 mb-0">お気に入りの画像を壁紙に設定できます</p>
         </div>
 
         <!--カラーカスタム-->
@@ -102,7 +99,7 @@
                 <button class="theme-btn accent-chip" data-theme="black" style="border-left: 8px solid #000000;">暗闇</button>
             </div>
         </div>
-        </div>
+    </div>
         <!--JS連携-->
         <script src="js/common.js"></script>
         <script src="js/setting.js"></script>
