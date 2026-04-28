@@ -37,7 +37,7 @@
             <td>${item.money.toLocaleString()}</td>
             <td>${item.memo || ""}</td>
             <td>
-                <div class="d-flex gap-1 justify-content-end">
+                <div class="d-flex gap-1 justify-content-start">
                     <button class="btn btn-warning btn-sm" onclick="editMode(${item.id})">編集</button>
                     <button class="btn btn-danger btn-sm" onclick="deleteData(${item.id})">削除</button>
                 </div>
@@ -67,12 +67,16 @@ function editMode(id) {
     const cells = tr.getElementsByTagName("td");
 
     //cells[0]は日付
+    const date = cells[0].innerText;   //日付
     const name = cells[1].innerText;   //内容
     const type = cells[2].innerText;   //収入or支出
     const category = cells[3].innerText; //カテゴリ
     const money = cells[4].innerText.replace(/,/g, ''); // カンマを除去して取得
     const memo = cells[5].innerText;
 
+    //編集モードのHTMLに切り替え
+
+    cells[0].innerHTML = `<input type="date" id="edit-date-${id}" class="form-control form-control-sm" value="${date}">`;
     cells[1].innerHTML = `<input type="text" id="edit-name-${id}" class="form-control form-control-sm" value="${name}">`;  //  .innerHTML =新しいHTMLに書き換え
     cells[2].innerHTML = `
         <select id="edit-type-${id}" class="form-select form-select-sm">
@@ -80,18 +84,17 @@ function editMode(id) {
             <option value="収入" ${type === '収入' ? 'selected' : ''}>収入</option>
         </select>`;
     cells[3].innerHTML = `
-        <select id="edit-category-${id}" class="form-select form-select-sm">
-            <option value="家賃" ${category.includes('家賃') ? 'selected' : ''}>🏠 家賃</option>
-            <option value="食費" ${category.includes('食費') ? 'selected' : ''}>🍎 食費</option>
-            <option value="交通費" ${category.includes('交通費') ? 'selected' : ''}>🚗 交通費</option>
-            <option value="光熱費" ${category.includes('光熱費') ? 'selected' : ''}>💡 光熱費</option>
-            <option value="日用品" ${category.includes('日用品') ? 'selected' : ''}>🛒 日用品</option>
-            <option value="医療費" ${category.includes('医療費') ? 'selected' : ''}>🏥 医療費</option>
-            <option value="給与" ${category.includes('給与') ? 'selected' : ''}>💰 給与</option>
+        <select id="edit-category-${id}" class="form-select form-select-sm"  >
+            <option value="🏠家賃" ${category.includes('🏠家賃') ? 'selected' : ''}>🏠 家賃</option>
+            <option value="🍎食費" ${category.includes('🍎食費') ? 'selected' : ''}>🍎 食費</option>
+            <option value="🚗交通費" ${category.includes('🚗交通費') ? 'selected' : ''}>🚗 交通費</option>
+            <option value="💡光熱費" ${category.includes('💡光熱費') ? 'selected' : ''}>💡 光熱費</option>
+            <option value="🛒日用品" ${category.includes('🛒日用品') ? 'selected' : ''}>🛒 日用品</option>
+            <option value="🏥医療費" ${category.includes('🏥医療費') ? 'selected' : ''}>🏥 医療費</option>
+            <option value="💰給与" ${category.includes('💰給与') ? 'selected' : ''}>💰 給与</option>
         </select>`;
     cells[4].innerHTML = `<input type="number" id="edit-money-${id}" class="form-control form-control-sm" value="${money}">`;
-    cells[5].innerHTML = `<input type="text" id="edit-memo-${id}" class="form-control form-control-sm" value="${memo}">`;
-
+    cells[5].innerHTML = `<textarea id="edit-memo-${id}" class="form-control form-control-sm" rows="2">${memo}</textarea>`;
     cells[6].innerHTML = `
         <div class="d-flex gap-1 justify-content-end">
             <button class="btn btn-success btn-sm" onclick="updateData(${id})">保存</button>
@@ -101,14 +104,15 @@ function editMode(id) {
 }
 
 async function updateData(id) {
+    // input要素から最新の入力値を取得するように修正
     const tr = document.getElementById(`row-${id}`);
     const updatedData = {
         id: id,
-        name: document.getElementById(`edit-name-${id}`).value,
+        name: document.getElementById(`edit-name-${id}`).value, 
         type: document.getElementById(`edit-type-${id}`).value,
         category: document.getElementById(`edit-category-${id}`).value,
         money: Number(document.getElementById(`edit-money-${id}`).value),
-        date: tr.getElementsByTagName("td")[0].innerText,
+        date: document.getElementById(`edit-date-${id}`).value,
         memo: document.getElementById(`edit-memo-${id}`).value
     };
 
@@ -119,7 +123,7 @@ async function updateData(id) {
     });
 
     if (res.ok) {
-        loadData();
+        loadData();   //一覧を再読み込みして編集モードを解除
     } else {
         alert("更新に失敗しました");
     }
