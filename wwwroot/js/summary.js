@@ -125,42 +125,84 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const res = await fetch("/api/Kakeibo");
     const data = await res.json();
-    
-    
+
+
     const grouped = {};
 
     data.forEach(x => {
-        const date = x.date.substring(0, 10); 
+        const date = x.date.substring(0, 10);
 
         if (!grouped[date]) {
-            grouped[date] = 0;
+            grouped[date] = {
+                total: 0,
+                total2: 0,
+                incomeItems: [],
+                expenseItems: []
+            };
         }
 
         if (x.type === "収入") {
-            grouped[date] += x.money;
-        } else {
-            grouped[date] -= x.money;
+            grouped[date].total += Number(x.money);
+            grouped[date].incomeItems.push(x); // ←収入だけ
+        } else if (x.type === "支出") {
+            grouped[date].total2 += Number(x.money);
+            grouped[date].expenseItems.push(x); // ←支出だけ
         }
     });
-    const events = Object.keys(grouped).map(date => {
-        const total = grouped[date];
 
-        return {
-            title: total >= 0 ? `+¥${total}` : `-¥${Math.abs(total)}`,
-            date: date,
-            color: total >= 0 ? "blue" : "red"
-        };
+    const events = [];
+
+    Object.keys(grouped).forEach(date => {
+        const total = grouped[date].total;
+        const total2 = grouped[date].total2;
+
+        if (total > 0) {
+            events.push({
+                title: `+¥${total}`,
+                date: date,
+                color: "blue",
+                extendedProps: {
+                    items: grouped[date].incomeItems,
+                    type: "income"
+                }
+            });
+        }
+
+        if (total2 > 0) {
+            events.push({
+                title: `-¥${total2}`,
+                date: date,
+                color: "red",
+                extendedProps: {
+                    items: grouped[date].expenseItems,
+                    type: "expense"
+                }
+            });
+        }
     });
 
     const calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: "dayGridMonth",
         locale: "ja",
-        events: events
+        events: events,
+
+        eventClick: function (info) {
+            const items = info.event.extendedProps.items;
+            const type = info.event.extendedProps.type;
+
+            let text = `[${type === "income" ? "収入" : "支出"}詳細]\n`;
+
+            items.forEach(x => {
+                text += `${x.category}: ¥${Number(x.money).toLocaleString()}\n`;
+            });
+
+            alert(text);
+        }
     });
 
     calendar.render();
 
 
     loadCharts();
-});
 
+});
