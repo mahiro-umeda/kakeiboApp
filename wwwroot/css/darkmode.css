@@ -97,6 +97,10 @@
     background-color: #103b79 !important;
     color: #e9ecef !important;
 }
+[data-bs-theme="dark"] .table-action {
+    background-color: #103b79 !important;
+    color: #e9ecef !important;
+}
 [data-bs-theme="dark"] .table-delete {
     background-color: #103b79 !important;
     color: #e9ecef !important;
