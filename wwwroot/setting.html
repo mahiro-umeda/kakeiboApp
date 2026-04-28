@@ -43,19 +43,6 @@
     </nav>
 
     <div class="row align-items-start mt-4">
-<<<<<<< Updated upstream
-
-        <div class="col-md-3">
-            <div class="p-3 box shadow-sm h-100">
-                <h5 class="mb-3">フォントカスタム</h5>
-                <select id="fontSelect" class="form-select rounded-pill" style="max-width: 150px;">
-                    <option value="'Noto Sans JP', sans-serif">標準</option>
-                    <option value="'Yu Gothic', sans-serif">游ゴシック</option>
-                    <option value="'MS P Mincho', serif">MS P明朝</option>
-                    <option value="'MS Gothic', monospace">等幅</option>
-                </select>
-=======
-
         <div class="col-md-3">
             <div class="p-3 box shadow-sm h-100">
                 <h5 class="mb-3">フォントカスタム</h5>
@@ -111,57 +98,9 @@
             <div class="d-flex flex-wrap gap-2 mb-5">
                 <button class="theme-btn accent-chip" data-theme="monotone" style="border-left: 8px solid #606060;">大人の落ち着き</button>
                 <button class="theme-btn accent-chip" data-theme="black" style="border-left: 8px solid #000000;">カーボン</button>
->>>>>>> Stashed changes
             </div>
         </div>
-
-        <div class="col-md-7">
-            <div class="p-3 box shadow-sm h-100">
-                <h5 class="mb-2">背景カスタマイズ</h5>
-                <div class="d-flex align-items-center gap-2">
-                    <input type="file" id="bgFileInput" class="form-control form-control-sm rounded-pill" style="max-width: 250px;" accept="image/*">
-
-                    <button class="btn btn-primary btn-sm text-nowrap rounded-pill px-3" onclick="uploadBackgroundImage()">適用</button>
-                    <button class="btn btn-outline-secondary btn-sm text-nowrap rounded-pill px-3" onclick="clearBackgroundImage()">リセット</button>
-                </div>
-                <p class="small text-muted mt-2 mb-0">お気に入りの画像を壁紙に設定できます</p>
-            </div>
         </div>
-
-            <!--カラーカスタム-->
-            <div class="color-section mt-4">
-                <h6 class="mb-3">パステルカラー</h6>
-                <div class="d-flex flex-wrap gap-2 mb-4">
-                    <button class="theme-btn accent-chip" data-theme="pastelblue" style="border-left: 8px solid #7fbfff;">さわやかな日曜日</button>
-                    <button class="theme-btn accent-chip" data-theme="pastelgreen" style="border-left: 8px solid #7fff7f;">ライム</button>
-                    <button class="theme-btn accent-chip" data-theme="pastelorange" style="border-left: 8px solid #ffbf7f;">あたたかな日差し</button>
-                    <button class="theme-btn accent-chip" data-theme="pastelpink" style="border-left: 8px solid #ff7fbf;">桜</button>
-                    <button class="theme-btn accent-chip" data-theme="pastelred" style="border-left: 8px solid #ff7f7f;">桃</button>
-                    <button class="theme-btn accent-chip" data-theme="pastelskyblue" style="border-left: 8px solid #7fffff;">空</button>
-                    <button class="theme-btn accent-chip" data-theme="pastelyellow" style="border-left: 8px solid #ffff7f">レモン</button>
-                    <button class="theme-btn accent-chip" data-theme="pastelbrown" style="border-left: 8px solid #e6bfab; ">ミルクティー</button>
-                </div>
-
-                <h6 class="mb-3">ビビッドカラー</h6>
-                <div class="d-flex flex-wrap gap-2">
-                    <button class="theme-btn accent-chip" data-theme="vividred" style="border-left: 8px solid #ff3333; ">情熱</button>
-                    <button class="theme-btn accent-chip" data-theme="vividblue" style="border-left: 8px solid #007bff;">ネコ型ロボット</button>
-                    <button class="theme-btn accent-chip" data-theme="vividgreen" style="border-left: 8px solid #28a745;">森林</button>
-                    <button class="theme-btn accent-chip" data-theme="vividorange" style="border-left: 8px solid #fd7e14;">完熟オレンジ</button>
-                    <button class="theme-btn accent-chip" data-theme="vividpink" style="border-left: 8px solid #e83e8c;">ディープな世界</button>
-                    <button class="theme-btn accent-chip" data-theme="vividskyblue" style="border-left: 8px solid #17a2b8;">深海</button>
-                    <button class="theme-btn accent-chip" data-theme="vividyellow" style="border-left: 8px solid #ffc107;">バナナ</button>
-                    <button class="theme-btn accent-chip" data-theme="vividbrown" style="border-left: 8px solid #663300;">ブラックコーヒー</button>
-                </div>
-
-                <h6 class="mb-3">モノトーン</h6>
-                <div class="d-flex flex-wrap gap-2 mb-5">
-                    <button class="theme-btn accent-chip" data-theme="monotone" style="border-left: 8px solid #606060;">大人の落ち着き</button>
-                    <button class="theme-btn accent-chip" data-theme="black" style="border-left: 8px solid #000000;">カーボン</button>
-                </div>
-            </div>
-        </div>
-
         <!--JS連携-->
         <script src="js/common.js"></script>
         <script src="js/setting.js"></script>
