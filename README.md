@@ -1,4 +1,6 @@
 # 👛 Wallet Keeper
+<img width="1254" height="1254" alt="ChatGPT Image 2026年4月28日 10_15_36" src="https://github.com/user-attachments/assets/eda12e26-6175-4f2d-a393-77fa5a8324cb" />
+
 
 <img width="1920" height="1128" alt="image" src="https://github.com/user-attachments/assets/620e8a85-6e82-4c92-b8e4-b463fd2f5615" />
 
