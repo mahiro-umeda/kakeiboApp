@@ -126,3 +126,10 @@
     .theme-btn:hover {
         opacity: 0.8;
     }
+.btn, .form-control, .form-select, .box {
+    border-radius: 12px !important; 
+}
+input[type="file"]::file-selector-button {
+    border-radius: 10px;
+    margin-right: 10px;
+}

@@ -125,66 +125,51 @@ function toggleDarkMode() {
     localStorage.setItem('darkMode', isDark);
 }
 
+// 背景画像アップロード
+    function uploadBackgroundImage() {
+    const fileInput = document.getElementById('bgFileInput');
+    const file = fileInput.files[0];
 
-
-/** * 画面遷移しても状態を維持するための処理
- */
-/*document.addEventListener('DOMContentLoaded', () => {
-    const isDark = localStorage.getItem('darkMode') === 'true';
-    const switchBtn = document.getElementById('darkModeSwitch');
-
-    if (isDark) {
-        document.documentElement.setAttribute('data-bs-theme', 'dark');
-        if (switchBtn) switchBtn.checked = true;
+    if (!file) {
+        alert("画像ファイルを選択してください");
+        return;
     }
-});
 
-//テーマカラー変更
-document.querySelectorAll(".theme-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        const theme = btn.dataset.theme;
-
-        document.body.setAttribute("data-theme", theme);
-    });
-});
-
-// 設定画面のボタンにクリックイベントをつける
-document.querySelectorAll('.theme-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        const theme = button.getAttribute('data-theme');
-        let selectedColor = '#0d6efd'; // デフォルト
-
-        // ボタンのデータに合わせて色を振り分ける
-        if (theme === 'vivid') selectedColor = '#ff0000';      // ビビッド（赤例）
-        if (theme === 'pastel') selectedColor = '#ffb7c5';     // パステル（ピンク例）
-        if (theme === 'lightblue') selectedColor = '#7fbfff';  // パステルブルー
-
-        // 1. 画面に即時反映
-        applyAccentColor(selectedColor);
-        // 2. localStorageに保存（画面遷移しても消えないように）
-        localStorage.setItem('accentColor', selectedColor);
-    });
-});
-
-// 実際にCSS変数を書き換える関数（common.jsに置いておくと全画面で使い回せます）
-function applyAccentColor(color) {
-    document.documentElement.style.setProperty('--accent-color', color);
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const base64Image = e.target.result;
+        // 画像データをLocalStorageに保存
+        localStorage.setItem('customBgImage', base64Image);
+        // 即座に反映
+        updateBodyBackground(base64Image);
+    };
+    reader.readAsDataURL(file); // 画像をデータに変換
 }
 
+// 実際にbodyのスタイルを変える共通関数
+function updateBodyBackground(imageData) {
+    if (imageData) {
+        document.body.style.backgroundImage = `url('${imageData}')`;
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundAttachment = "fixed";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundRepeat = "no-repeat";
+    } else {
+        document.body.style.backgroundImage = "none";
+    }
+}
+
+// 背景リセット
+function clearBackgroundImage() {
+    localStorage.removeItem('customBgImage');
+    updateBodyBackground(null);
+    document.getElementById('bgFileInput').value = ''; // 入力をクリア
+}
+
+// ページ読み込み時に保存された背景があれば適用（全てのページで実行するようにする）
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. アクセントカラーの復元 ---
-    const savedTheme = localStorage.getItem('selectedTheme');
-    if (savedTheme) {
-        // bodyに属性をセットしてCSS変数を発動させる
-        document.body.setAttribute('data-theme', savedTheme);
+    const savedBg = localStorage.getItem('customBgImage');
+    if (savedBg) {
+        updateBodyBackground(savedBg);
     }
-
-    // --- 2. ダークモードの復元 ---
-    const isDark = localStorage.getItem('darkMode') === 'true';
-    document.documentElement.setAttribute('data-bs-theme', isDark ? 'dark' : 'light');
-
-    const switchBtn = document.getElementById('darkModeSwitch');
-    if (switchBtn) {
-        switchBtn.checked = isDark;
-    }
-});*/
+});

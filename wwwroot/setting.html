@@ -42,16 +42,32 @@
 
     </nav>
 
-    <div class="container mt-4">
-        <!--フォントカスタム-->
-        <h6 class="section-title mt-4">フォントカスタム</h6>
-        <!-- フォント選択 -->
-        <select id="fontSelect" class="form-select" style="width:160px;">
-            <option value="'Noto Sans JP', sans-serif">標準</option>
-            <option value="'Yu Gothic', sans-serif">游ゴシック</option>
-            <option value="'MS P Mincho', serif">MS P明朝</option>
-            <option value="'MS Gothic', monospace">等幅</option>
-        </select>
+    <div class="row align-items-start mt-4">
+        <div class="col-md-3">
+            <div class="p-3 box shadow-sm h-100">
+                <h5 class="mb-3">フォントカスタム</h5>
+                <select id="fontSelect" class="form-select rounded-pill" style="max-width: 150px;">
+                    <option value="'Noto Sans JP', sans-serif">標準</option>
+                    <option value="'Yu Gothic', sans-serif">游ゴシック</option>
+                    <option value="'MS P Mincho', serif">MS P明朝</option>
+                    <option value="'MS Gothic', monospace">等幅</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="p-3 box shadow-sm h-100">
+                <h5 class="mb-2">背景カスタマイズ</h5>
+                <div class="d-flex align-items-center gap-2">
+                    <input type="file" id="bgFileInput" class="form-control form-control-sm rounded-pill" style="max-width: 350px;" accept="image/*">
+
+                    <button class="btn btn-primary btn-sm text-nowrap rounded-pill px-3" onclick="uploadBackgroundImage()">適用</button>
+                    <button class="btn btn-outline-secondary btn-sm text-nowrap rounded-pill px-3" onclick="clearBackgroundImage()">リセット</button>
+                </div>
+                <p class="small text-muted mt-2 mb-0">お気に入りの画像を壁紙に設定できます</p>
+            </div>
+        </div>
+
         <!--カラーカスタム-->
         <div class="color-section mt-4">
             <h6 class="mb-3">パステルカラー</h6>
@@ -86,11 +102,10 @@
                 <button class="theme-btn accent-chip" data-theme="black" style="border-left: 8px solid #000000;">暗闇</button>
             </div>
         </div>
-    </div>
-
-    <!--JS連携-->
-    <script src="js/common.js"></script>
-    <script src="js/setting.js"></script>
+        </div>
+        <!--JS連携-->
+        <script src="js/common.js"></script>
+        <script src="js/setting.js"></script>
 
 </body>
 </html>
