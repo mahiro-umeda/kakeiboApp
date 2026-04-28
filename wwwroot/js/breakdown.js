@@ -85,17 +85,16 @@ function editMode(id) {
         </select>`;
     cells[3].innerHTML = `
         <select id="edit-category-${id}" class="form-select form-select-sm"  >
-            <option value="家賃" ${category.includes('家賃') ? 'selected' : ''}>🏠 家賃</option>
-            <option value="食費" ${category.includes('食費') ? 'selected' : ''}>🍎 食費</option>
-            <option value="交通費" ${category.includes('交通費') ? 'selected' : ''}>🚗 交通費</option>
-            <option value="光熱費" ${category.includes('光熱費') ? 'selected' : ''}>💡 光熱費</option>
-            <option value="日用品" ${category.includes('日用品') ? 'selected' : ''}>🛒 日用品</option>
-            <option value="医療費" ${category.includes('医療費') ? 'selected' : ''}>🏥 医療費</option>
-            <option value="給与" ${category.includes('給与') ? 'selected' : ''}>💰 給与</option>
+            <option value="🏠家賃" ${category.includes('🏠家賃') ? 'selected' : ''}>🏠 家賃</option>
+            <option value="🍎食費" ${category.includes('🍎食費') ? 'selected' : ''}>🍎 食費</option>
+            <option value="🚗交通費" ${category.includes('🚗交通費') ? 'selected' : ''}>🚗 交通費</option>
+            <option value="💡光熱費" ${category.includes('💡光熱費') ? 'selected' : ''}>💡 光熱費</option>
+            <option value="🛒日用品" ${category.includes('🛒日用品') ? 'selected' : ''}>🛒 日用品</option>
+            <option value="🏥医療費" ${category.includes('🏥医療費') ? 'selected' : ''}>🏥 医療費</option>
+            <option value="💰給与" ${category.includes('💰給与') ? 'selected' : ''}>💰 給与</option>
         </select>`;
     cells[4].innerHTML = `<input type="number" id="edit-money-${id}" class="form-control form-control-sm" value="${money}">`;
-    cells[5].innerHTML = `<input type="text" id="edit-memo-${id}" class="form-control form-control-sm" value="${memo}">`;
-
+    cells[5].innerHTML = `<textarea id="edit-memo-${id}" class="form-control form-control-sm" row="2">${memo}</textarea>`;
     cells[6].innerHTML = `
         <div class="d-flex gap-1 justify-content-end">
             <button class="btn btn-success btn-sm" onclick="updateData(${id})">保存</button>
