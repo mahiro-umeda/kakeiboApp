@@ -126,7 +126,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     const res = await fetch("/api/Kakeibo");
     const data = await res.json();
 
-
     const grouped = {};
 
     data.forEach(x => {
@@ -143,10 +142,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         if (x.type === "収入") {
             grouped[date].total += Number(x.money);
-            grouped[date].incomeItems.push(x); // ←収入だけ
+            grouped[date].incomeItems.push(x);
         } else if (x.type === "支出") {
             grouped[date].total2 += Number(x.money);
-            grouped[date].expenseItems.push(x); // ←支出だけ
+            grouped[date].expenseItems.push(x);
         }
     });
 
@@ -190,19 +189,29 @@ document.addEventListener("DOMContentLoaded", async function () {
             const items = info.event.extendedProps.items;
             const type = info.event.extendedProps.type;
 
-            let text = `[${type === "income" ? "収入" : "支出"}詳細]\n`;
+            let text = `<b>${type === "income" ? "収入" : "支出"}詳細</b><br>`;
 
             items.forEach(x => {
-                text += `${x.category}: ¥${Number(x.money).toLocaleString()}\n`;
+                text += `${x.category}: ¥${Number(x.money).toLocaleString()}<br>`;
             });
 
-            alert(text);
+            showModal(text);
         }
     });
 
     calendar.render();
 
-
     loadCharts();
-
 });
+
+
+function showModal(text) {
+    document.getElementById("modalBody").innerHTML = text.replace(/\n/g, "<br>");
+
+    const modal = new bootstrap.Modal(document.getElementById("detailModal"));
+    modal.show();
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
