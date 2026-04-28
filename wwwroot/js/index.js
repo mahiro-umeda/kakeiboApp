@@ -19,10 +19,15 @@
         });
 
         if (response.ok) {
-            alert("登録完了");
-            this.reset(); // フォームをクリア
+            showToast();
+            this.reset();
         }
     } catch (error) {
         console.error("エラーが発生しました:", error);
     }
+
 });
+function showToast() {
+    const toast = new bootstrap.Toast(document.getElementById("successToast"));
+    toast.show();
+}
