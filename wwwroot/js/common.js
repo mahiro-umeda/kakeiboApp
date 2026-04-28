@@ -150,7 +150,7 @@ function toggleDarkMode() {
 function updateBodyBackground(imageData) {
     if (imageData) {
         document.body.style.backgroundImage = `url('${imageData}')`;
-        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundSize = "contain";
         document.body.style.backgroundAttachment = "fixed";
         document.body.style.backgroundPosition = "center";
         document.body.style.backgroundRepeat = "no-repeat";
