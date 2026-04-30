@@ -19,18 +19,19 @@
 </head>
 
 <body>
+    
 
     <!-- ナビ -->
     <nav class="navbar navbar-dark bg-primary px-3">
         <label class="toggle-button-4">
-        <input type="checkbox" id="darkModeSwitch" onchange="toggleDarkMode()" />
+            <input type="checkbox" id="darkModeSwitch" onchange="toggleDarkMode()" />
         </label>
 
         <div class="menu-box ms-auto d-flex align-items-center gap-2">
 
             <!-- ハンバーガー -->
             <div class="menu-btn" onclick="toggleMenu()">☰</div>
-            
+
             <!-- メニュー -->
             <div class="menu-list" id="menu">
                 <a href="index.html">✒新規追加</a>
@@ -49,7 +50,7 @@
     <!-- フォーム中央 -->
     <div class="wrapper">
         <div class="form-card">
-            
+
             <form id="kakeiboForm">
 
                 <div class="row g-3">
@@ -86,7 +87,7 @@
                     </div>
 
                     <div class="col-md-2">
-                        <input id="date" type="date" class="form-control"  required>
+                        <input id="date" type="date" class="form-control" required>
                     </div>
 
                     <div class="col-md-2">
@@ -96,11 +97,12 @@
                 </div>
 
                 <div class="text-center mt-4">
-                    <button type=" submit"  class="btn btn-primary">登録</button>
+                    <button type="submit" class="btn btn-primary">登録</button>
                 </div>
             </form>
+            <div id="message" class="alert alert-success" style="display:none;"></div>
 
-</div>
+        </div>
     </div>
 
     <!--JS連携-->

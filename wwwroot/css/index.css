@@ -24,4 +24,22 @@
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
+
+.form-card:hover {
+    transform:translateY(-3px);
+}
+
+
+
+#message.alert-success {
+    margin-top:25px;
+    background: linear-gradient(135deg, #b6ff00, #78ffd6);
+    color: #064e3b;
+    border-radius: 12px;
+    font-weight: bold;
+   
+}
+
+

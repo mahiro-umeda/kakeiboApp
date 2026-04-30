@@ -1,5 +1,5 @@
 ﻿/*下端に余白*/
-.body{
+body{
     margin-bottom:20px;
 }
 
@@ -31,7 +31,13 @@
     min-width: 180px;
     display: none;
     z-index: 1000;
+   
 }
+
+    .menu-list.show {
+        display: block;
+        animation: fadeIn 0.2s ease;
+    }
 
     /* メニュー項目 */
     .menu-list a {
@@ -58,6 +64,7 @@
         opacity: 1;
         transform: translateY(0);
     }
+    
 }
 
 .toggle-button-4 {
