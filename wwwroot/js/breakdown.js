@@ -1,9 +1,19 @@
-﻿async function loadData() {
-    const res = await fetch("/api/kakeibo");
+﻿
+async function loadData(sortAsc = false) {
+    const res = await fetch(`/api/kakeibo?sortAsc=${sortAsc}`);
     const data = await res.json();
 
+    data.sort((a, b) => {
+        if (sortAsc) {
+            return new Date(a.date) - new Date(b.date);
+        } else {
+            return new Date(b.date) - new Date(a.date);
+        }
+    });
+
+
     const list = document.getElementById("list");
-    list.innerHTML = "";
+    list.innerHTML = "";  //前の表示データを全て消す
 
     let totalIncome = 0;
     let totalExpense = 0;
@@ -14,10 +24,12 @@
     const searchCategory = document.getElementById("searchCategory").value;
 
     data.forEach(item => {
-        if (startDate && item.date < startDate) return;
-        if (endDate && item.date > endDate) return;
-        if (searchType && item.type !== searchType) return;
-        if (searchCategory && item.category !== searchCategory) return;
+        const itemDate = new Date(item.date);
+        const start = startDate ? new Date(startDate) : null;
+        const end = endDate ? new Date(endDate) : null;
+
+        if (start && itemDate < start) return;
+        if (end && itemDate > end) return;
 
         if (item.type === "収入") {
             totalIncome += item.money;

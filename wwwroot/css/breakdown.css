@@ -3,6 +3,12 @@ body {
     background: #f5f7fa;
 }
 
+.title {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+}
+
 /* ===== 合計カード ===== */
 .summary-card {
     display: flex;
@@ -93,3 +99,8 @@ body {
         .menu-list a:hover {
             background: #f0f0f0;
         }
+
+.btn.btn-secondary{
+    background-color:rgba(200,200,200,0.8);
+    color:#000;
+}

@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;  //Web APIを作るために必要
 using System.Data.SQLite;
 
 namespace kakeiboApp.Controllers
 {
-    [ApiController]
+    [ApiController]   //Controllerの定義　　APIの入口
     [Route("api/[controller]")]
     public class KakeiboController : ControllerBase
     {
@@ -12,7 +12,8 @@ namespace kakeiboApp.Controllers
         // テーブル作成
         private void CreateTable(SQLiteConnection connection)
         {
-            string sql = @"
+            //SQLの新規作成
+            string sql = @"   
             CREATE TABLE IF NOT EXISTS Kakeibo(
                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
                 Name TEXT,
@@ -24,12 +25,12 @@ namespace kakeiboApp.Controllers
             )";
 
             using var cmd = new SQLiteCommand(sql, connection);
-            cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery(); //SQLを実行
         }
 
         // 登録
         [HttpPost]
-        public IActionResult Post([FromBody] Kakeibo data)
+        public IActionResult Post([FromBody] Kakeibo data) //データの追加
         {
             try
             {
@@ -38,13 +39,15 @@ namespace kakeiboApp.Controllers
 
                 CreateTable(connection);
 
+                //データベースに情報追加
                 string sql = @"
                 INSERT INTO Kakeibo (Name, Money, Type, Category, Date, Memo)
                 VALUES (@name, @money, @type, @category, @date, @memo)
-                ";
+                "; 
 
                 using var cmd = new SQLiteCommand(sql, connection);
 
+                //SQLインジェクション対策
                 cmd.Parameters.AddWithValue("@name", data.Name ?? "");
                 cmd.Parameters.AddWithValue("@money", data.Money);
                 cmd.Parameters.AddWithValue("@type", data.Type ?? "");
@@ -52,7 +55,7 @@ namespace kakeiboApp.Controllers
                 cmd.Parameters.AddWithValue("@date", data.Date ?? "");
                 cmd.Parameters.AddWithValue("@memo", data.Memo ?? "");
 
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery(); //SQLを実行
 
                 return Ok();
             }
@@ -64,7 +67,7 @@ namespace kakeiboApp.Controllers
 
         // 検索
         [HttpGet]
-        public IActionResult Get(string? type, string? category, string? startDate, string? endDate)
+        public IActionResult Get(string? type, string? category, string? startDate, string? endDate, bool sortAsc= false) //データを取得
         {
             try
             {
@@ -78,7 +81,7 @@ namespace kakeiboApp.Controllers
                 string sql = @"
                 SELECT Id, Name, Money, Type, Category, Date, Memo 
                 FROM Kakeibo 
-                WHERE 1=1
+                WHERE 1=1   
                 ";
 
                 if (!string.IsNullOrEmpty(type))
@@ -93,6 +96,7 @@ namespace kakeiboApp.Controllers
                 if (!string.IsNullOrEmpty(endDate))
                     sql += " AND date(Date) <= date(@endDate)";
 
+                
                 using var cmd = new SQLiteCommand(sql, connection);
 
                 if (!string.IsNullOrEmpty(type))
@@ -107,9 +111,11 @@ namespace kakeiboApp.Controllers
                 if (!string.IsNullOrEmpty(endDate))
                     cmd.Parameters.AddWithValue("@endDate", endDate);
 
+                
+
                 using var reader = cmd.ExecuteReader();
 
-                while (reader.Read())
+                while (reader.Read()) //１件ずつ取得
                 {
                     list.Add(new Kakeibo
                     {
