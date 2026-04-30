@@ -85,7 +85,7 @@ Chart.jsを使用した円グラフと棒グラフで、お金の流れを一目
 | Backend  | C# / ASP.NET Core |
 | Frontend | HTML5 / CSS3 / JavaScript (Bootstrap 5) |
 | Database | SQLite |
-| Library  | Chart.js / Entity Framework Core |
+| Library  | Chart.js |
 
 ---
 
