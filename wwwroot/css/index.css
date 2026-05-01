@@ -9,14 +9,43 @@
     font-weight: bold;
     margin-top: 30px;
     font-family: "Times New Roman", cursive;
+    transform: scaleY(1.05); /* 文字そのものを縦に伸ばす */
+    letter-spacing: 0.01em;
 }
 
-/* フォーム中央寄せ */
-.wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
+    .title::first-letter {
+        font-size: 50px;
+        letter-spacing: -0.15em;
+    }
+
+    
+span {
+    /* 幅を縦長にする*/
+    display: inline-block; /* scaleを使うにはブロック要素化が必要 */
+    transform: scaleY(1.58); /* 文字そのものを縦に伸ばす */
+    vertical-align: 0.18em; /* 数値を調整して上に持ち上げる */
+
 }
+
+span2 {
+    font-size: 50px;
+    letter-spacing: -0.05em;
+    /* K の文字幅広いので幅を変える*/
+    display: inline-block; /* scaleを使うにはブロック要素化が必要 */
+    transform: scaleX(0.9); /* 文字そのものを横に0.8倍に縮める */
+}
+
+span3 {
+letter-spacing: -0.02em;
+}
+    
+
+    /* フォーム中央寄せ */
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
 
 /* カード */
 .form-card {

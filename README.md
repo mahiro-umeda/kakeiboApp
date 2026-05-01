@@ -56,22 +56,25 @@ Chart.jsを使用した円グラフと棒グラフで、お金の流れを一目
 # 4. 📱 画面構成
 
 ### 📱 新規追加画面
-<img width="1911" height="943" alt="image" src="https://github.com/user-attachments/assets/22cf0882-b10a-4595-9e71-f17818942c66" />
+<img width="1914" height="819" alt="image" src="https://github.com/user-attachments/assets/bb69f7d1-0cab-48b1-b299-c6ac16c577cf" />
 
 ---
 
 ### 🏠 明細一覧画面
-<img width="1894" height="932" alt="image" src="https://github.com/user-attachments/assets/61a16fdd-34dc-42c7-8a48-6a5d1ca9158e" />
+<img width="1892" height="821" alt="image" src="https://github.com/user-attachments/assets/0cdb355f-5db2-4714-a56f-c136fa0fb2c9" />
+
 
 ---
 
 ### 📊 集計画面
-<img width="1890" height="938" alt="image" src="https://github.com/user-attachments/assets/ec37c12d-acad-419b-b809-ce061cc0c54a" />
+<img width="1891" height="822" alt="image" src="https://github.com/user-attachments/assets/7e3de672-abbc-4681-9785-d399429ea0a9" />
+
 
 ---
 
 ### 🎨 設定画面
-<img width="1890" height="948" alt="image" src="https://github.com/user-attachments/assets/a397348c-79bb-4a19-bb13-1482e5747074" />
+<img width="1889" height="826" alt="image" src="https://github.com/user-attachments/assets/4717764b-3d9c-4817-a992-baca7b581e74" />
+
 
 ---
 
@@ -82,7 +85,7 @@ Chart.jsを使用した円グラフと棒グラフで、お金の流れを一目
 | Backend  | C# / ASP.NET Core |
 | Frontend | HTML5 / CSS3 / JavaScript (Bootstrap 5) |
 | Database | SQLite |
-| Library  | Chart.js / Entity Framework Core |
+| Library  | Chart.js |
 
 ---
 
