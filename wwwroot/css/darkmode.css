@@ -105,3 +105,7 @@
     background-color: #103b79 !important;
     color: #e9ecef !important;
 }
+[data-bs-theme="dark"] .btn.btn-secondary {
+    background-color:#797676;
+    color:#e9ecef;
+}

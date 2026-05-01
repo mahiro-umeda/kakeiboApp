@@ -99,3 +99,8 @@ body {
         .menu-list a:hover {
             background: #f0f0f0;
         }
+
+.btn.btn-secondary{
+    background-color:rgba(200,200,200,0.8);
+    color:#000;
+}

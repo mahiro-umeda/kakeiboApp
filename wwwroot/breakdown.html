@@ -95,18 +95,29 @@
             <div class="col">
                 <select id="searchCategory" class="form-select">
                     <option value="">すべて</option>
-                    <option value="家賃">🏠 家賃</option>
-                    <option value="食費">🍎 食費</option>
-                    <option value="交通費">🚗 交通費</option>
-                    <option value="光熱費">💡 光熱費</option>
-                    <option value="日用品">🛒 日用品</option>
-                    <option value="医療費">🏥 医療費</option>
-                    <option value="ローン">💳 ローン</option>
-                    <option value="交際費">🎉 交際費</option>
-                    <option value="雑費">📝 雑費</option>
-                    <option value="給与">💰 給与</option>
-                    <option value="臨時収入">🎁 臨時収入</option>
+                    <option value="🏠家賃">🏠 家賃</option>
+                    <option value="🍎食費">🍎 食費</option>
+                    <option value="🚗交通費">🚗 交通費</option>
+                    <option value="💡光熱費">💡 光熱費</option>
+                    <option value="🛒日用品">🛒 日用品</option>
+                    <option value="🏥医療費">🏥 医療費</option>
+                    <option value="💳ローン">💳 ローン</option>
+                    <option value="🎉交際費">🎉 交際費</option>
+                    <option value="📝雑費">📝 雑費</option>
+                    <option value="💰給与">💰 給与</option>
+                    <option value="🎁臨時収入">🎁 臨時収入</option>
                 </select>
+            </div>
+
+            <div class="col">
+                <button class=" btn btn-secondary w-100" onclick="loadData(true)">
+                    昇順
+                </button>
+            </div>
+            <div class="col">
+                <button class="btn btn-secondary  w-100" onclick="loadData(false)">
+                    降順
+                </button>
             </div>
 
             <div class="col">

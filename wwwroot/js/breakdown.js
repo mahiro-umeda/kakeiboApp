@@ -1,9 +1,19 @@
-﻿async function loadData() {
-    const res = await fetch("/api/kakeibo");
+﻿
+async function loadData(sortAsc = false) {
+    const res = await fetch(`/api/kakeibo?sortAsc=${sortAsc}`);
     const data = await res.json();
 
+    data.sort((a, b) => {
+        if (sortAsc) {
+            return new Date(a.date) - new Date(b.date);
+        } else {
+            return new Date(b.date) - new Date(a.date);
+        }
+    });
+
+
     const list = document.getElementById("list");
-    list.innerHTML = "";
+    list.innerHTML = "";  //前の表示データを全て消す
 
     let totalIncome = 0;
     let totalExpense = 0;
@@ -14,10 +24,12 @@
     const searchCategory = document.getElementById("searchCategory").value;
 
     data.forEach(item => {
-        if (startDate && item.date < startDate) return;
-        if (endDate && item.date > endDate) return;
-        if (searchType && item.type !== searchType) return;
-        if (searchCategory && item.category !== searchCategory) return;
+        const itemDate = new Date(item.date);
+        const start = startDate ? new Date(startDate) : null;
+        const end = endDate ? new Date(endDate) : null;
+
+        if (start && itemDate < start) return;
+        if (end && itemDate > end) return;
 
         if (item.type === "収入") {
             totalIncome += item.money;
@@ -91,7 +103,9 @@ function editMode(id) {
             <option value="💡光熱費" ${category.includes('💡光熱費') ? 'selected' : ''}>💡 光熱費</option>
             <option value="🛒日用品" ${category.includes('🛒日用品') ? 'selected' : ''}>🛒 日用品</option>
             <option value="🏥医療費" ${category.includes('🏥医療費') ? 'selected' : ''}>🏥 医療費</option>
+            <option value="📝雑費" ${category.includes('📝雑費') ? 'selected' : ''}>📝 雑費</option>
             <option value="💰給与" ${category.includes('💰給与') ? 'selected' : ''}>💰 給与</option>
+            <option value="🎁臨時収入" ${category.includes('🎁臨時収入') ? 'selected' : ''}>🎁 臨時収入</option>
         </select>`;
     cells[4].innerHTML = `<input type="number" id="edit-money-${id}" class="form-control form-control-sm" value="${money}">`;
     cells[5].innerHTML = `<textarea id="edit-memo-${id}" class="form-control form-control-sm" rows="2">${memo}</textarea>`;
